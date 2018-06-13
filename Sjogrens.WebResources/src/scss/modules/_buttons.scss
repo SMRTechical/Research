@@ -1,0 +1,75 @@
+/*Buttons*/
+.btn-nav{
+  width:150px;
+}
+
+
+.nav-visit-button{
+  background-color: $light-color !important;
+  color: $dark-color !important;
+  border:1px solid $dark-color !important;
+}
+
+.nav-visit-button-success{
+  background-color: $light-color !important;
+  color: $success-color !important;
+  border:1px solid $success-color !important;
+}
+
+.btn-primary{
+    @include add-background($dark-color);
+}
+
+.btn-primary:hover{
+    background: darken($dark-color, 10%);
+}
+
+.btn-sq-lg {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  .btn-sq {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 10px;
+  }
+  
+  .btn-sq-sm {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 10px;
+  }
+  
+  .btn-sq-xs {
+    width: 25px !important;
+    height: 25px !important;
+    padding:2px;
+  }
+  
+
+  .attendance-button-container {
+  .btn-attendance{
+    // padding:0 !important;
+    margin-bottom:2px;
+  }
+
+  .btn-attendance-info {
+    background: #d9edf7;
+    color:#31708f !important;
+    border:1px solid #ddd;
+  }
+
+  .btn-attendance-active {
+    background: #31708f;
+    color:#fff !important;
+    border:1px solid #31708f;
+  }
+
+  .btn-attendance-success {
+    background: #1cb94e;
+    color:#fff !important;
+    border:1px solid #1cb94e;
+  }
+
+}

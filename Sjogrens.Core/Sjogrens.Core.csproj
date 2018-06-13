@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EDD06A43-C685-4EC2-A93F-AAA537C8396D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sjogrens.Core</RootNamespace>
+    <AssemblyName>Sjogrens.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Insight.Database, Version=5.2.8.0, Culture=neutral, PublicKeyToken=f35c6ef87e515afc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Insight.Database.Core.5.2.8\lib\NET45\Insight.Database.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Insight.Database.Configuration, Version=5.2.8.0, Culture=neutral, PublicKeyToken=f35c6ef87e515afc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Insight.Database.5.2.8\lib\NET45\Insight.Database.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Insight.Database.Providers.Default, Version=5.2.8.0, Culture=neutral, PublicKeyToken=f35c6ef87e515afc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Insight.Database.5.2.8\lib\NET45\Insight.Database.Providers.Default.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.5.0\lib\net46\Serilog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=3.0.1.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.Console.3.0.1\lib\net45\Serilog.Sinks.Console.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.File.3.2.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Literate, Version=3.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.Literate.3.0.0\lib\net45\Serilog.Sinks.Literate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.RollingFile, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.RollingFile.3.3.0\lib\net45\Serilog.Sinks.RollingFile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Net.NameResolution, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.NameResolution.4.3.0\lib\net46\System.Net.NameResolution.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Http.Common.4.0.20126.16343\lib\net40\System.Web.Http.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\Models\AuthenticationResult.cs" />
+    <Compile Include="Application\Models\Interfaces\IAuthenticationResult.cs" />
+    <Compile Include="Application\Services\AdAuthenticationService.cs" />
+    <Compile Include="Application\Services\Interfaces\IAdAuthenticationService.cs" />
+    <Compile Include="Data\Interfaces\Models\ICompleteVisitKeyValue.cs" />
+    <Compile Include="Data\Interfaces\Models\IDetail.cs" />
+    <Compile Include="Data\Interfaces\Models\ICompleteVisit.cs" />
+    <Compile Include="Data\Interfaces\Models\IVisit.cs" />
+    <Compile Include="Data\Interfaces\Models\IVisitControlValue.cs" />
+    <Compile Include="Data\Interfaces\Models\IVisitToken.cs" />
+    <Compile Include="Data\Interfaces\Models\IPatientOrg.cs" />
+    <Compile Include="Data\Interfaces\Models\ISpinePatient.cs" />
+    <Compile Include="Data\Interfaces\Models\IPatientState.cs" />
+    <Compile Include="Data\Interfaces\Models\IVisitKeyValue.cs" />
+    <Compile Include="Data\Interfaces\Models\ICategory.cs" />
+    <Compile Include="Data\Interfaces\Params\IVisitControlValueGetParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IVisitKeyValueGetParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IVisitGetParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IPatientStateGetParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IVisitHeaderGetParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IVisitKeyValuePostParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IVisitPostParams.cs" />
+    <Compile Include="Data\Interfaces\Params\_ISpineSearchParams.cs" />
+    <Compile Include="Data\Interfaces\Services\IAudit.cs" />
+    <Compile Include="Data\Interfaces\Services\ICategoryService.cs" />
+    <Compile Include="Data\Interfaces\Services\IConsentService.cs" />
+    <Compile Include="Data\Interfaces\Services\IOrganisationService.cs" />
+    <Compile Include="Data\Interfaces\Services\IPatientService.cs" />
+    <Compile Include="Data\Interfaces\Services\IPatientStateService.cs" />
+    <Compile Include="Data\Interfaces\Services\IVisitControlValueService.cs" />
+    <Compile Include="Data\Interfaces\Services\IVisitHeaderService.cs" />
+    <Compile Include="Data\Interfaces\Services\IVisitKeyValueService.cs" />
+    <Compile Include="Data\Interfaces\Services\IVisitService.cs" />
+    <Compile Include="Data\Models\CompleteVisitKeyValue.cs" />
+    <Compile Include="Data\Models\Detail.cs" />
+    <Compile Include="Data\Models\CompleteVisit.cs" />
+    <Compile Include="Data\Models\CompleteVisitControlValue.cs" />
+    <Compile Include="Data\Models\VisitControlValue.cs" />
+    <Compile Include="Data\Models\VisitKeyValue.cs" />
+    <Compile Include="Data\Models\VisitCategory.cs" />
+    <Compile Include="Data\Models\PatientOrg.cs" />
+    <Compile Include="Data\Models\SpinePatient.cs" />
+    <Compile Include="Data\Models\PatientState.cs" />
+    <Compile Include="Data\Models\Visit.cs" />
+    <Compile Include="Data\Models\Category.cs" />
+    <Compile Include="Data\Params\VisitControlValueGetParams.cs" />
+    <Compile Include="Data\Params\VisitKeyValueGetParams.cs" />
+    <Compile Include="Data\Params\VisitGetParams.cs" />
+    <Compile Include="Data\Params\PatientStateGetParams.cs" />
+    <Compile Include="Data\Params\CategoryGetParams.cs" />
+    <Compile Include="Data\Params\VisitKeyValuePostParams.cs" />
+    <Compile Include="Data\Params\VisitPostParams.cs" />
+    <Compile Include="Data\Params\_SpineSearchParams.cs" />
+    <Compile Include="Data\Services\CategoryService.cs" />
+    <Compile Include="Data\Services\ConsentService.cs" />
+    <Compile Include="Data\Services\OrganisationService.cs" />
+    <Compile Include="Data\Services\PatientService.cs" />
+    <Compile Include="Data\Services\PatientStateService.cs" />
+    <Compile Include="Data\Services\VisitControlValueService.cs" />
+    <Compile Include="Data\Services\VisitHeaderService.cs" />
+    <Compile Include="Data\Services\VisitKeyValueService.cs" />
+    <Compile Include="Data\Services\VisitService.cs" />
+    <Compile Include="Factories\AuthenticationFactory.cs" />
+    <Compile Include="Configuration\ConfigKeys.cs" />
+    <Compile Include="Configuration\ConfigStore.cs" />
+    <Compile Include="Configuration\IConfigStore.cs" />
+    <Compile Include="Data\Interfaces\Models\IConsent.cs" />
+    <Compile Include="Data\Interfaces\Models\IPatientBaseline.cs" />
+    <Compile Include="Data\Interfaces\Models\IVisitHeader.cs" />
+    <Compile Include="Data\Interfaces\Params\IConsentGetParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IConsentPostParams.cs" />
+    <Compile Include="Data\Interfaces\Params\ISecurityParams.cs" />
+    <Compile Include="Data\Interfaces\Params\ICategoryGetParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IVisitHeaderDuplicateParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IVisitHeadersGetParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IVisitHeaderPostParams.cs" />
+    <Compile Include="Data\Interfaces\Models\IOrganisation.cs" />
+    <Compile Include="Data\Interfaces\Models\IMITPatient.cs" />
+    <Compile Include="Data\Interfaces\Models\IPatient.cs" />
+    <Compile Include="Data\Interfaces\Params\IPatientAddParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IBaselinePostParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IBaselineGetParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IPatientDetailsGetParams.cs" />
+    <Compile Include="Data\Interfaces\Models\IUserAuditDetails.cs" />
+    <Compile Include="Data\Interfaces\Params\IPatientSearchParams.cs" />
+    <Compile Include="Data\Interfaces\Params\IPatientsSearchParams.cs" />
+    <Compile Include="Data\Models\Organisation.cs" />
+    <Compile Include="Data\Models\MITPatient.cs" />
+    <Compile Include="Data\Models\Consent.cs" />
+    <Compile Include="Data\Models\Patient.cs" />
+    <Compile Include="Data\Params\PatientAddParams.cs" />
+    <Compile Include="Data\Params\BaselinePostParams.cs" />
+    <Compile Include="Data\Params\BaselineGetParams.cs" />
+    <Compile Include="Data\Params\PatientDetailsGetParams.cs" />
+    <Compile Include="Data\Models\PatientBaseline.cs" />
+    <Compile Include="Data\Models\UserAuditDetails.cs" />
+    <Compile Include="Data\Params\PatientSearchParams.cs" />
+    <Compile Include="Data\Params\PatientsSearchParams.cs" />
+    <Compile Include="Data\Models\VisitHeader.cs" />
+    <Compile Include="Data\Params\ConsentPostParams.cs" />
+    <Compile Include="Data\Params\ConsentGetParams.cs" />
+    <Compile Include="Data\Params\VisitHeaderGetParams.cs" />
+    <Compile Include="Data\Params\VisitHeaderDuplicateParams.cs" />
+    <Compile Include="Data\Params\VisitHeaderPostParams.cs" />
+    <Compile Include="Data\Params\VisitHeadersGetParams.cs" />
+    <Compile Include="Enums\EnvironmentConfig.cs" />
+    <Compile Include="Enums\SjogrensSignInStatus.cs" />
+    <Compile Include="ExtensionMethods\Collection.cs" />
+    <Compile Include="ExtensionMethods\HttpRequest.cs" />
+    <Compile Include="ExtensionMethods\Numeric.cs" />
+    <Compile Include="ExtensionMethods\Object.cs" />
+    <Compile Include="ExtensionMethods\String.cs" />
+    <Compile Include="Factories\PatientFactory.cs" />
+    <Compile Include="Factories\DateTimeFactory.cs" />
+    <Compile Include="Factories\EnvironmentFactory.cs" />
+    <Compile Include="Factories\EncryptionFactory.cs" />
+    <Compile Include="Factories\SpineFactory.cs" />
+    <Compile Include="Http\BaseHttpService.cs" />
+    <Compile Include="Http\DataApiHttpService.cs" />
+    <Compile Include="Http\HttpClientUriBuilder.cs" />
+    <Compile Include="Http\HttpServiceResponse.cs" />
+    <Compile Include="Http\HttpServiceResponseException.cs" />
+    <Compile Include="Http\IBaseHttpService.cs" />
+    <Compile Include="Http\IDataApiHttpService.cs" />
+    <Compile Include="Logging\LoggerFactory.cs" />
+    <Compile Include="Logging\UnhandledExceptionLogger.cs" />
+    <Compile Include="Serialization\Interfaces\ISerializer.cs" />
+    <Compile Include="Serialization\Interfaces\IXmlDocumentSerializer.cs" />
+    <Compile Include="Serialization\Models\DataParameterTypeJsonConverter.cs" />
+    <Compile Include="Serialization\Models\Serializer.cs" />
+    <Compile Include="Serialization\Models\TypeNameJsonConverter.cs" />
+    <Compile Include="Serialization\Models\XmlDocumentSerializer.cs" />
+    <Compile Include="Serialization\Models\XmlValidationException.cs" />
+    <Compile Include="Application\Interfaces\_IActiveDirectoryUser.cs" />
+    <Compile Include="Generic\Interfaces\IErrors.cs" />
+    <Compile Include="Application\Models\_UHBActiveDirectoryUser.cs" />
+    <Compile Include="Application\Models\_ActiveDirectoryUser.cs" />
+    <Compile Include="Generic\Models\Errors.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\Models\JsonContentNegotiator.cs" />
+    <Compile Include="Application\Services\_ActiveDirectoryService.cs" />
+    <Compile Include="Application\Services\Interfaces\_IActiveDirectoryService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domains\" />
+    <Folder Include="Security\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,66 @@
+/*Mixins*/
+
+@mixin border-radius($radius){
+   -moz-border-radius:$radius;
+   -webkit-border-radius:$radius;
+   border-radius:$radius; 
+}
+
+@mixin add-border($size, $color, $position){
+    @if $position == 'all'{
+    border:$size solid $color;
+    } @else if $position == 'top' {
+        border-top: $size solid $color;
+    } @else if $position == 'bottom' {
+        border-bottom: $size solid $color;
+    } @else if $position == 'right' {
+        border-right: $size solid $color;
+    } @else if $position == 'left' {
+        border-left: $size solid $color;
+    } @else if $position == 'top-bottom' {
+        border-top: $size solid $color;
+        border-bottom: $size solid $color;
+    }@else if $position == 'right-left' {
+        border-left: $size solid $color;
+        border-right: $size solid $color;
+    }
+}
+
+
+@mixin add-background($color){
+  background: $color;
+
+  @if $color == $light-color {
+      color:#666666;
+  } @else {
+      color:#fff;
+  }
+
+}
+
+
+@mixin add-margin($size,  $position){
+    @if $position == 'all'{
+    margin:$size !important;
+    } @else if $position == 'top' {
+        margin-top: $size !important;
+    } @else if $position == 'bottom' {
+        margin-bottom: $size !important;
+    } @else if $position == 'right' {
+        margin-right: $size !important;
+    } @else if $position == 'left' {
+        margin-left: $size !important;
+    }
+}
+
+@mixin add-alert($color,$bg-color){
+    //padding: 8px 35px 8px 14px;
+    //margin-bottom: 18px;
+    color:$color;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: $bg-color;
+    border: 1px solid $bg-color;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}

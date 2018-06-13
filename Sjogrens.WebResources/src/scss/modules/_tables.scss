@@ -1,0 +1,10 @@
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+    background-color:$secondary-color !important;
+    cursor: pointer !important;
+    color:$light-color
+}
+
+.table-header{
+    background-color: $dark-color;
+}

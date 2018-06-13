@@ -1,0 +1,53 @@
+/*Scroll bar*/
+.scrollbar-v{
+    overflow-y: scroll; 
+}
+.scrollbar-v-height-500{
+    @extend .scrollbar-v;
+    height: 500px;
+    }
+
+.scrollbar-v-height-600{
+    @extend .scrollbar-v;
+    height: 600px;
+    }
+
+    .scrollbar-v-height-660{
+        @extend .scrollbar-v;
+        height: 660px;
+        }
+
+  .scrollbar-v-visit-content{
+      @extend .scrollbar-v-height-500;
+      overflow-x: hidden;
+  }  
+    
+    // ::-webkit-scrollbar {
+    //     width: 12px;
+    // }
+     
+    // ::-webkit-scrollbar-track {
+    //     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    //     border-radius: 10px;
+    // }
+     
+    // ::-webkit-scrollbar-thumb {
+    //     border-radius: 10px;
+    //     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    // }
+    
+    ::-webkit-scrollbar { width: 12px; } 
+    /* Track */ 
+    ::-webkit-scrollbar-track { 
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        -webkit-border-radius: 10px; border-radius: 10px; } 
+        
+    /* Handle */ 
+    ::-webkit-scrollbar-thumb { 
+        -webkit-border-radius: 10px; 
+        border-radius: 10px; background: $secondary-color; 
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.5);  
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); } 
+        
+    ::-webkit-scrollbar-thumb:window-inactive { background:  lighten($secondary-color, 55% ); }

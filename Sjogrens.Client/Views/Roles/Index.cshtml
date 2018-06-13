@@ -1,0 +1,53 @@
+﻿@using Sjogrens.Client.Models
+@model LoginRegisterViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid mt-20">
+    <div>
+
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <div class="panel panel-primary">
+
+                        <div class="panel-heading roles-links">
+                            <h2>Roles Listing</h2>
+                            @Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
+                        </div>
+
+                        <div class="panel-body">
+
+                            @foreach (var role in Model.Roles)
+            {
+                                <p>
+                                    <strong>@role.Name  </strong>
+                                    @*<span onclick="return confirm('Are you sure to delete?')"><a href="/Roles/Delete?RoleName=@role.Name" class="btn btn-danger" >Delete</a></span> |
+                                    @Html.ActionLink("Edit", "Edit", new { roleName = @role.Name }, new { @class = "btn btn-primary" })*@
+                                </p>
+                            }
+
+                        </div>
+
+                    </div>
+
+                
+
+
+
+
+
+
+                </div>
+            </div>
+            </div>
+
+
+
+</div>
+</div>

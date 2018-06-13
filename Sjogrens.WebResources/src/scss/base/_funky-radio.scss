@@ -1,0 +1,201 @@
+
+//https://bootsnipp.com/snippets/featured/funky-radio-buttons
+.funkyradio {
+    
+        div {
+            // clear: both;
+            // overflow: hidden;
+            display: inline-block;
+            margin-right:1em;
+        }
+    
+        label {
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid #D1D3D4;
+            font-weight: normal;
+        }
+    
+        input[type="radio"],
+        input[type="checkbox"] {
+    
+            &:empty {
+                display: none;
+    
+                ~ label {
+                    position: relative;
+                    // line-height: 2.5em;
+                    text-indent: 1em;
+                    // margin-top: 2em;
+                        margin-right:0.5em;
+                    cursor: pointer;
+                    user-select: none;
+    
+                    &:before {
+                        position: absolute;
+                        display: block;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        content: '';
+                        width: 2em;
+                        background: #D1D3D4;
+                        border-radius: 3px 0 0 3px;
+                    }
+                }
+            }
+    
+            &:hover:not(:checked) ~ label {
+                color: #888;
+    
+                &:before {
+                    content: '\2714';
+                    text-indent: .9em;
+                    color: #C2C2C2;
+                }
+            }
+    
+            &:checked ~ label {
+                color: #777;
+    
+                &:before {
+                    content: '\2714';
+                    text-indent: .9em;
+                    color: #333;
+                    background-color: #ccc;
+                }
+            }
+    
+            &:focus ~ label:before {
+                box-shadow: 0 0 0 3px #999;
+            }
+        }
+
+
+        // input[type="radio"]:disabled,
+        // input[type="checkbox"]:disabled {
+    
+        //     &:empty {
+        //         display: none;
+    
+        //         ~ label {
+        //             color: #fff;
+        //             position: relative;
+        //             // line-height: 2.5em;
+        //             text-indent: 1em;
+        //             // margin-top: 2em;
+        //                 margin-right:0.5em;
+        //             cursor: default;
+        //             user-select: none;
+        //             border: none;
+        //             &:before {
+        //                 position: absolute;
+        //                 display: block;
+        //                 top: 0;
+        //                 bottom: 0;
+        //                 left: 0;
+        //                 content: '';
+        //                 width: 2em;
+        //                 background: #fff;
+        //                 border-radius: 3px 0 0 3px;
+        //             }
+        //         }
+        //     }
+    
+        //     &:hover:not(:checked) ~ label {
+        //         color: #fff;
+    
+        //         &:before {
+        //             content: '\2714';
+        //             text-indent: .9em;
+        //             color:#fff;
+        //         }
+        //     }
+    
+        //     &:checked ~ label {
+        //         color: #fff;
+    
+        //         &:before {
+        //             content: '\2714';
+        //             text-indent: .9em;
+        //             color: #fff;
+        //             background-color:#fff;
+        //         }
+        //     }
+    
+        //     &:focus ~ label:before {
+        //         box-shadow: 0 0 0 3px #fff;
+        //     }
+        // }
+
+    
+        &-default {
+            input[type="radio"],
+            input[type="checkbox"] {
+                &:checked ~ label:before {
+                    color: #333;
+                    background-color: #ccc;
+                }
+            }
+        }
+    
+        &-primary {
+            input[type="radio"],
+            input[type="checkbox"] {
+                &:checked ~ label:before {
+                    color: #fff;
+                    background-color: $primary-color;
+                }
+            }
+        }
+    
+        &-success {
+            input[type="radio"],
+            input[type="checkbox"] {
+                &:checked ~ label:before {
+                    color: #fff;
+                    background-color: $success-color;
+                }
+            }
+        }
+    
+        &-danger {
+            input[type="radio"],
+            input[type="checkbox"] {
+                &:checked ~ label:before {
+                    color: #fff;
+                    background-color:  $danger-color;
+                }
+            }
+        }
+    
+        &-warning-danger {
+            input[type="radio"],
+            input[type="checkbox"] {
+                &:checked ~ label:before {
+                    color: #fff;
+                    background-color:  $warning-danger-color;
+                }
+            }
+        }
+
+        &-warning {
+            input[type="radio"],
+            input[type="checkbox"] {
+                &:checked ~ label:before {
+                    color: #fff;
+                    background-color:  $warning-color;
+                }
+            }
+        }
+    
+        &-info {
+            input[type="radio"],
+            input[type="checkbox"] {
+                &:checked ~ label:before {
+                    color: #fff;
+                    background-color: #5bc0de;
+                }
+            }
+        }
+    }

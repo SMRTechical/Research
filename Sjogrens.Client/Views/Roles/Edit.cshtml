@@ -1,0 +1,39 @@
+﻿@using Sjogrens.Client.Models
+@model LoginRegisterViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="container-fluid mt-20">
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading roles-links">
+                            <h2>Edit Role</h2>
+                            @Html.ActionLink("List Roles", "Index") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
+                        </div>
+                        <div class="panel-body">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
+                                @Html.HiddenFor(model => model.Roles[0].Id)
+                                <div>
+                                    Role name
+                                </div>
+                                <p>
+                                    @Html.TextBoxFor(model => model.Roles[0].Name)
+                                </p>
+                                <input type="submit" value="Save" />
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

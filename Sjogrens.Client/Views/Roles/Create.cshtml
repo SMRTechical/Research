@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="container-fluid mt-20">
+    <div>
+
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <div class="panel panel-primary">
+
+                        <div class="panel-heading roles-links">
+
+                            <h2>Create Role</h2>
+                            @Html.ActionLink("List Roles", "Index") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
+
+                        </div>
+
+                        <div class="panel-body">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
+
+                                <div>
+                                    Role name
+                                </div>
+                                <p>
+                                    @Html.TextBox("RoleName", null, new { @class = "form-control" })
+                                </p>
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            }
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

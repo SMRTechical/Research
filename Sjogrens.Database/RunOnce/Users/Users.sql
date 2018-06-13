@@ -1,0 +1,2 @@
+﻿CREATE USER [CDEA_Sjogrens_User] FOR LOGIN [CDEA_Sjogrens_User] WITH DEFAULT_SCHEMA=[dbo]
+GO

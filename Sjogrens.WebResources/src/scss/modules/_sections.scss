@@ -1,0 +1,54 @@
+/*Sections*/
+
+section{
+    padding:5px 0;
+}
+
+
+
+    // .showcase-content{
+    //     padding:90px 15px;
+    //     text-align: center;
+    // }
+
+    // h1{
+    //     color:$primary-color;
+    // }
+//}
+
+
+// .login-showcase{
+//     background:url($showcase-image) no-repeat 1 -100px
+// }
+
+.section-primary{
+@include add-background($primary-color)
+}
+
+.section-primary-a{
+    @extend .section-primary;
+    @include add-border(6px, $secondary-color, top);
+
+}
+
+.section-primary-b{
+    @extend .section-primary;
+    @include add-border(6px, $secondary-color, bottom);
+
+}
+.section-secondary{
+@include add-background($secondary-color)
+}
+
+.section-light{
+@include add-background($light-color)
+}
+
+.section-dark{
+@include add-background($dark-color)
+}
+
+.audit{
+    font-style: italic;
+    font-size: 1.2rem;
+}

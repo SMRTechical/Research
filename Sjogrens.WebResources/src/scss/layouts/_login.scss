@@ -1,0 +1,182 @@
+// body {
+// 	padding-top: 90px;
+// 	background-color: lighten($secondary-color, 55% )
+// }
+
+// .login-showcase{
+//     //height:$showcase-height;
+//     background: url($showcase-image) no-repeat center;
+//     background-size:cover;
+//     overflow: hidden;
+//     padding-top: 90px;
+// 	background-color: lighten($secondary-color, 55% );
+// }
+.text-danger-login{
+	color:$error !important;
+}
+
+.panel-login-container{
+	z-index:999;
+}
+
+.field-validation-error,validation-summary-errors {
+	// padding:10px !important;
+	// background-color: $error-background-color !important;
+	color:$error !important;
+	// text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	// border: 1px solid $error-background-color !important;
+	// -webkit-border-radius: 4px;
+	// -moz-border-radius: 4px;
+	// border-radius: 4px;
+
+}
+// .uhbBg{
+// 	opacity: 0.3;
+// 	height:100%;
+// 	width:100%;
+// 	position:fixed; 
+// 	bottom:0px; 
+// 	left:0%;
+// 	background-size: cover; 
+// 	z-index:1
+// }
+
+
+html, body, #bg { 
+	width: 100%; 
+	height: 100% 
+}
+
+#bg { 
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	//background-image: url($showcase-image);
+	background-size: cover;
+	background-position: center;
+	z-index: 1;
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+
+#content { 
+	min-height: 100%;
+	position: relative;
+	z-index: 2
+}
+
+.panel-login {
+	border-color: $secondary-color;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+
+	
+	@include add-border(5px, $secondary-color, top);
+}
+.panel-login>.panel-heading {
+	@include add-background($dark-color);
+	// color: $secondary-color;
+	// background-color: $dark-color;
+	// border-color: $dark-color;
+	text-align:center;
+}
+.panel-login>.panel-heading a{
+	text-decoration: none;
+	color:#fff;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color:$secondary-color;
+	font-size: 18px;
+}
+.panel-login>.panel-heading hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),$secondary-color,rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),$secondary-color,rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),$secondary-color,rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),$secondary-color,rgba(0,0,0,0));
+}
+
+.panel-login-body{
+	@include add-background($dark-color);
+	//  @include add-border(1px, $dark-color, top);
+	
+	// @include add-border(1px, $secondary-color, left);
+	// @include add-border(1px, $secondary-color, right);
+}
+
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	height: 45px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+// .panel-login input:hover,
+// .panel-login input:focus {
+// 	outline:none;
+// 	-webkit-box-shadow: none;
+// 	-moz-box-shadow: none;
+// 	box-shadow: none;
+// 	// border-color: #ccc;
+// }
+.btn-login {
+	background-color: $dark-color;
+	//outline: none;
+	color:#fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	//padding: 14px 0;
+	text-transform: uppercase;
+	// border-color: $dark-color;
+}
+.btn-login:hover,
+.btn-login:focus {
+	color: $secondary-color;
+	// background-color: $dark-color;
+	// border-color: $dark-color;
+}
+.forgot-password {
+	text-decoration: underline;
+	color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+	text-decoration: underline;
+	color: #666;
+}
+
+.btn-register {
+	background-color: $secondary-color;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: $dark-color;
+}
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: $secondary-color;
+	border-color: $secondary-color;
+}
+
+.anchor-register, .anchor-login{
+    color:$secondary-color !important;
+}

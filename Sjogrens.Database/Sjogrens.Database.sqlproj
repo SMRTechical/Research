@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Sjogrens.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b1d11995-13c1-4890-a661-739a6b492e72}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Sjogrens.Database</RootNamespace>
+    <AssemblyName>Sjogrens.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="Sprocs" />
+    <Folder Include="Users" />
+    <Folder Include="RunOnce" />
+    <Folder Include="RunOnce\Users" />
+    <Folder Include="RunOnce\Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Sjogrens_Patients.sql" />
+    <Build Include="Sprocs\Sjogrens_Patient_Search.sql" />
+    <Build Include="Sprocs\Sjogrens_Profile_GetOrganisations.sql" />
+    <None Include="RunOnce\Users\Users.sql" />
+    <Build Include="Tables\Sjogrens_Organisations.sql" />
+    <Build Include="Sprocs\Sjogrens_Patients_Search.sql" />
+    <Build Include="Sprocs\Sjogrens_Patient_CheckMit.sql" />
+    <Build Include="Tables\Sjogrens_Ethnicity.sql" />
+    <Build Include="Sprocs\Sjogrens_Patient_UpsertPatientDetail_defunct.sql" />
+    <Build Include="Sprocs\GetPatientDetails.sql" />
+    <Build Include="Tables\Sjogrens_Baseline.sql" />
+    <Build Include="Sprocs\Sjogrens_Patient_InsertPatientDetails.sql" />
+    <Build Include="Sprocs\Sjogrens_Patient_UpdatePatientDetails.sql" />
+    <Build Include="Tables\InclusionCriteria.sql" />
+    <Build Include="Tables\ExclusionCriteria.sql" />
+    <Build Include="Tables\Categories.sql" />
+    <Build Include="RunOnce\Data\Baseline.sql" />
+    <Build Include="Tables\Controls.sql" />
+    <Build Include="Tables\ControlValues.sql" />
+    <Build Include="Tables\VisitHeader.sql" />
+    <Build Include="Sprocs\GetVisitHeaders.sql" />
+    <Build Include="Tables\Audit_VisitHeader.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RunOnce\Data\Ethnicity.sql" />
+    <None Include="RunOnce\Data\Consent.sql" />
+    <None Include="RunOnce\Data\Categories.sql" />
+    <None Include="RunOnce\Data\AmericanEuropeanCGC.sql" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,83 @@
+﻿@model Sjogrens.Client.Models.SelectUserClaimsViewModel
+@{
+    ViewBag.Title = "User Claims";
+}
+<h2>Claims for user @Html.DisplayFor(model => model.UserName)</h2>
+<hr />
+@using (Html.BeginForm("UserClaims", "Account", FormMethod.Post, new { encType = "multipart/form-data", name = "myform" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.UserName)
+            </div>
+        </div>
+        <h4>Select Claim Assignments</h4>
+        <br />
+        <hr />
+
+
+
+        @for (int i = 0; i < Model.Claims.Count(); i++)
+        {
+
+            
+
+            if (Model.Claims[i].Type == "Authorized")
+            {
+                bool b = false;
+                bool.TryParse(Model.Claims[i].Value, out b);
+                <div class="checkbox">
+                    <label>
+
+
+                        @Html.Hidden("[" + (i - 8) + "].Type", @Model.Claims[i].Type)
+                        @Html.CheckBox("[" + (i - 8) + "].Value", b)
+
+                        <span class="lbl">@Model.Claims[i].Type</span>
+                    </label>
+                </div>
+            }
+           
+            if (Model.Claims[i].Type == "CdeaId")
+            {
+
+                <div class="dropdown">
+                    
+                    <span class="lbl">@Model.Claims[i].Type</span>
+
+                        @Html.Hidden("[" + (i - 9) + "].Type", @Model.Claims[i].Type)
+                        @Html.DropDownList("[" + (i - 9) + "].Value",
+                       new SelectList(@Model.CDEAList, "Value", "Text", @Model.Claims[i].Value), "Select CDEA",
+                    new { @class = "form-control" })
+                       
+                    
+                </div>
+            }
+        }
+        @*@{
+                for (int i = 0; i < 4; i++)
+                {
+                    <tr>
+                        <td> @Html.TextBox("[" + i + "].Value") </td>
+                        <td> @Html.TextBox("[" + i + "].Type")</td>
+                    </tr>
+                }
+            }*@
+
+        <br />
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

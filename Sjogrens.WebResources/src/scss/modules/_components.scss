@@ -1,0 +1,1086 @@
+
+/*Carousel*/
+
+.carousel{
+    margin-bottom:20px; 
+}
+
+.carousel img{
+    padding:3px;
+    @include add-border(1px, #cccccc, all);
+}
+
+/*Tabs*/
+.tab-pane{
+    padding:20px 10px;
+    @include border-radius(5px);
+    margin-bottom:20px;
+}
+
+.tab-primary .tab-pane,
+.tab-primary .nav-tabs > li.active > a, 
+.tab-primary .nav-tabs > li.active > a:hover,
+.tab-primary .nav-tabs > li.active > a:focus {
+    @include add-background($primary-color)
+}
+
+.tab-secondary .tab-pane,
+.tab-secondary .nav-tabs > li.active > a, 
+.tab-secondary .nav-tabs > li.active > a:hover,
+.tab-secondary .nav-tabs > li.active > a:focus {
+    @include add-background($secondary-color)
+}
+
+.tab-dark .tab-pane,
+.tab-dark .nav-tabs > li.active > a, 
+.tab-dark .nav-tabs > li.active > a:hover,
+.tab-dark .nav-tabs > li.active > a:focus {
+    @include add-background($dark-color)
+}
+
+.tab-light .tab-pane,
+.tab-light .nav-tabs > li.active > a, 
+.tab-light .nav-tabs > li.active > a:hover,
+.tab-light .nav-tabs > li.active > a:focus {
+    @include add-background($light-color)
+}
+
+/*dl dd*/
+
+.patientdetails-address-dl {
+    margin:0;
+    dd{
+        margin-left:70px;
+    }
+    dt {
+        text-align: left;
+        width:70px;
+    }
+}
+
+.patientdetails-personal-data-dl{
+    dt{
+        text-align: left;
+    }
+    dl {
+        margin:0;
+    }
+    dd{
+        margin-left:140px;
+    }
+}
+
+.patientdetails-address-row{
+    margin-bottom:0;
+}
+
+.patientdetails-well{
+    min-height: 20px;
+    padding: 10px;
+    margin:0;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+
+.visit-well{
+     min-height: 50px;
+     padding: 10px 0 0 0;
+    margin:0;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+
+.visitCompleted-well{
+    color:$light-color;
+     min-height: 50px;
+     padding: 10px 0 0 0;
+     margin:0;
+    background-color: $success-color;
+    border: 1px solid $success-color;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.patientdetails-hr{
+    border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $dark-color, rgba(0, 0, 0, 0));display: none;
+    // overflow: visible; /* For IE */ padding: 0; border: none; border-top: medium double #d3d3d3; color: #333; text-align: center;
+}
+// .patientdetails-hr:after{
+//     display: inline-block; position: relative; top: -0.7em; font-size: 1.5em; padding: 0 0.25em; background: white;
+// }
+
+
+.patient-baseline-inclusion-criteria-hr{
+    border: 0; height: 1px; background-image: linear-gradient(to right, rgba(28, 185, 78, 0), $success-color, rgba(28, 185, 78, 0));display: none;
+    // overflow: visible; /* For IE */ padding: 0; border: none; border-top: medium double #d3d3d3; color: #333; text-align: center;
+}
+
+
+.patient-baseline-exclusion-criteria-hr{
+    border: 0; height: 1px; background-image: linear-gradient(to right, rgba(217, 83, 79, 0), $danger-color, rgba(217, 83, 79, 0));display: none;
+    // overflow: visible; /* For IE */ padding: 0; border: none; border-top: medium double #d3d3d3; color: #333; text-align: center;
+}
+
+
+hr.message-inner-separator-danger
+{
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 13px;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left,rgba(217, 83, 79, 0), $danger-color, rgba(217, 83, 79, 0));
+    background-image: -moz-linear-gradient(left,rgba(217, 83, 79, 0), $danger-color, rgba(217, 83, 79, 0));
+    background-image: -ms-linear-gradient(left,rgba(217, 83, 79, 0), $danger-color, rgba(217, 83, 79, 0));
+    background-image: -o-linear-gradient(left,rgba(217, 83, 79, 0), $danger-color, rgba(217, 83, 79, 0));
+    display:none;    
+}
+
+
+hr.message-inner-separator-success
+{
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 13px;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left,rgba(28, 185, 78, 0), $success-color, rgba(28, 185, 78, 0));
+    background-image: -moz-linear-gradient(left,rgba(28, 185, 78, 0), $success-color, rgba(28, 185, 78, 0));
+    background-image: -ms-linear-gradient(left,rgba(28, 185, 78, 0), $success-color, rgba(28, 185, 78, 0));
+    background-image: -o-linear-gradient(left,rgba(28, 185, 78, 0), $success-color, rgba(28, 185, 78, 0));
+    display:none;
+}
+
+
+// .new-visit-border{
+//     @include add-border(1px, $secondary-color, all);
+// }
+
+.alert {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+// .calendar{
+//     @include add-border(1px, $secondary-color, all);
+// }
+.react-datepicker__portal .react-datepicker,
+.react-datepicker {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    //font-family: $base-font-family;
+    font-size: 1.3rem;
+   // font-size: $base-font-size;
+   background-color: lighten($secondary-color, 55% );
+   color:$dark-color;
+   //  @include add-background($dark-color);
+   @include add-border(1px, $secondary-color, bottom); 
+   border-radius: 0.3rem;
+    display: inline-block;
+    position: relative;
+    z-index: 999;
+}
+
+.react-datepicker__header {
+    text-align: center;
+    // background-color: #f0f0f0;
+    // border-bottom: 1px solid #aeaeae;
+    @include add-background($dark-color);
+    @include add-border(5px, $secondary-color, top);
+    @include add-border(1px, $secondary-color, bottom);
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    padding-top: 8px;
+    position: relative;
+    color:#fff;
+}
+
+.react-datepicker__current-month, .react-datepicker-time__header {
+    margin-top: 0;
+    //color: #000;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color:#fff;
+// font-size:$base-font-size;
+// font-family: $base-font-family;
+}
+
+
+.react-datepicker__day-names, .react-datepicker__week {
+    white-space: nowrap;
+    font-weight: bold;
+    //font-size: 0.944rem;
+    color:#fff;
+// font-size:$base-font-size;
+// font-family: $base-font-family;
+}
+
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+   // color: #000;
+   color:$base-font-color; 
+   display: inline-block;
+    width: 1.7rem;
+    line-height: 1.7rem;
+    text-align: center;
+    margin: 0.6rem;
+    color:#fff;
+    // font-size:$base-font-size;
+    // font-family: $base-font-family;
+}
+
+.react-datepicker__month {
+    margin: 0.4rem;
+    text-align: center;
+}
+
+.datepicker__week {
+    white-space: nowrap;
+    font-weight: bold;
+    color: #fff;
+    font-size: 15px;
+    font-family: "Segoe UI", "Segoe WP", "Segoe Regular", sans-serif;
+// font-size:$base-font-size;
+// font-family: $base-font-family;
+
+}
+
+.react-datepicker__day {
+    cursor: pointer;
+    color:$dark-color;
+}
+
+.react-datepicker__day:hover {
+    border-radius: 0.3rem;
+    background-color: $secondary-color;
+    color:$dark-color;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover {
+    background-color:$dark-color;
+    color:#fff;
+}
+
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle::before {
+    border-top: none;
+    border-bottom-color: $secondary-color;
+}
+
+//.react-datepicker__input-container {
+//     position: relative;
+//     display: inline-block;
+//     @include add-background($dark-color);
+//     @include add-border(1px, $secondary-color, all);
+// }
+  
+.new-visit-border {
+    @include add-background($dark-color);
+    @include add-border(1px, $secondary-color, all);
+}
+    
+
+.react-datepicker-popper[data-placement^="top"] {
+    margin-bottom: 6px;
+    z-index: 999;
+}
+
+
+.react-datepicker-popper[data-placement^="bottom"] {
+    margin-top: 10px;
+    z-index: 999;
+}
+
+.react-datepicker__today-button {
+    @include add-background($dark-color);
+    //  background: $secondary-color;
+    @include add-border(1px, $secondary-color, top);
+    // border-top: 1px solid #aeaeae;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 0;
+    clear: left;
+}
+
+// .react-datepicker__triangle{
+//     background-color: $secondary-color;
+// }
+
+.react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before, .react-datepicker__month-read-view--down-arrow::before {
+    border-bottom: none;
+    border-top-color: $dark-color;
+}
+
+
+.react-datepicker__navigation--previous {
+    left: 10px;
+    top:    20px;
+    border-right-color:  $secondary-color;
+}
+
+.react-datepicker__navigation--next {
+    right: 10px;
+    top:    20px;
+    border-left-color: $secondary-color;
+}
+
+.react-datepicker__navigation--previous:hover {
+     border-right-color: $secondary-color; 
+}
+
+.react-datepicker__navigation--next:hover {
+    border-left-color: $secondary-color; 
+}
+
+.react-datepicker__portal .react-datepicker__navigation--previous {
+    border-right-color: $secondary-color; 
+}
+
+
+.react-datepicker__portal .react-datepicker__navigation--next {
+    border-left-color: $secondary-color; 
+}
+
+.react-datepicker__day--highlighted-allowed-visit-dates {
+    background-color:$secondary-color;
+}
+
+.react-datepicker__day--disabled {
+    cursor: default;
+    color: #ccc;
+}
+
+
+.react-datepicker__day--disabled:hover {
+     border-radius: 0.3rem;
+    background-color: lighten($secondary-color, 55% );
+    cursor: not-allowed;
+    color: #ccc;
+    border:none;
+}
+
+
+.react-datepicker__year-select,.react-datepicker__month-select{
+    color:$dark-color;
+    background-color: lighten($secondary-color, 55% );
+}
+
+.react-datepicker__month-dropdown, 
+.react-datepicker__year-dropdown  {
+    color:$dark-color;
+    background-color: lighten($secondary-color, 55% );
+}
+
+ .react-datepicker__day--outside-month{
+    border-radius: 0.3rem;
+    background-color: #f1ffd4;
+    /*cursor: not-allowed;*/
+    color: #ccc;
+    border: none;
+ }
+
+ .react-datepicker__day-names, .react-datepicker__today-button{
+    background-color: lighten($dark-color, 10% ) !important;
+    color:$light-color !important;
+ }
+
+ .react-datepicker__year-read-view, .react-datepicker__month-read-view
+{
+    border:1px solid $secondary-color !important;
+    margin-bottom:10px;
+}
+
+.react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow {
+    /* border-top-color: #ccc; */
+    float: right;
+    margin-left: 20px;
+    top: 8px;
+    position: relative;
+    border-width: 0.45rem;
+    color:$light-color !important;
+}
+
+
+.react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow {
+    /* border-top-color: #ccc; */
+    float: right;
+    margin-left: 20px;
+    top: 12px;
+    position: relative;
+    border-width: .65rem;
+    color: $light-color !important;
+}
+
+.react-datepicker__year-dropdown-container--select, .react-datepicker__month-dropdown-container--select, .react-datepicker__year-dropdown-container--scroll, .react-datepicker__month-dropdown-container--scroll {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.Cal__Header__root{
+    background-color: $dark-color !important;
+    color:$light-color !important;
+}
+
+.Cal__Weekdays__root{
+    background-color: lighten($dark-color, 10% ) !important;
+    color:$light-color !important;
+}
+
+.Cal__Day__selection{
+    background-color: $dark-color !important;
+    color:$light-color !important;
+}
+
+.Cal__Today__root {
+    background-color: $dark-color !important;
+    color:$light-color !important;
+}
+
+.Cal__Day__today{
+color: $secondary-color !important;
+}
+
+.panel-patient-details{
+   // margin-bottom:0;
+    cursor: pointer;
+}
+
+.panel-consent{
+    // margin-bottom:0;
+    cursor: pointer;
+}
+
+// .panel-consent > .panel-body{
+//     padding:5px;
+// }
+
+.consent-container {
+    position: relative;
+
+.fa-consent-success{
+    color:$success-color;
+    opacity: 0.2;
+    filter: alpha(opacity=20); /* For IE8 and earlier */
+}
+
+
+.fa-consent-danger{
+    color:$danger-color;
+    opacity: 0.2;
+    filter: alpha(opacity=20); /* For IE8 and earlier */
+}
+
+.consent-message {
+    position: absolute;
+    top:45%;
+    left:20%;
+    font-weight:bold;
+}
+
+}
+
+
+.attendance-button-container{
+    
+    .attendance-message {
+        position: absolute;
+        top:20%;
+        left:45%;
+        font-weight:bold;
+    }
+
+    
+.fa-attendance{
+    opacity: 0.2;
+    filter: alpha(opacity=20); /* For IE8 and earlier */
+}
+}
+
+.tooltip-theme{
+    background-color: $dark-color;
+}
+
+.tooltip-theme {
+    // color: $light-color !important;
+     background-color: $dark-color !important;
+    // &.place-top {
+    // &:after {
+    // border-top-color: $secondary-color !important;
+    // border-top-style: solid !important;
+    // border-top-width: 6px !important;
+    // }
+    // }
+
+    
+
+//  @include add-background($danger-color);
+ @include add-border(5px, $secondary-color, top);
+ 
+ @include add-border(1px, $secondary-color, left);
+ @include add-border(1px, $secondary-color, right);
+   }
+
+
+
+   .tooltip-error {
+    // color: $light-color !important;
+    cursor: pointer;
+     background-color: $error-background-color !important;
+     color: $error !important;
+    // &.place-top {
+    // &:after {
+    // border-top-color: $secondary-color !important;
+    // border-top-style: solid !important;
+    // border-top-width: 6px !important;
+    // }
+    // }
+
+    
+
+//  @include add-background($danger-color);
+ @include add-border(5px, $secondary-color, top);
+ 
+ @include add-border(1px, $secondary-color, left);
+ @include add-border(1px, $secondary-color, right);
+   }
+
+
+
+   .scroll-up{
+       color: $dark-color;
+   }
+
+
+
+   .panel-transparent {
+    background: none;
+}
+
+.panel-transparent .panel-heading{
+    background: #2b5464 !important;
+    opacity: 0.8 !important;
+}
+
+.panel-transparent .panel-body{
+    background: #e4eef2 !important;
+    opacity:0.8 !important;
+    color:black !important;
+}
+
+
+// .ocularSignsInputGroup {
+//     .input-group-addon, .input-group-btn {
+//         width:30px !important;
+//     }
+// }
+
+
+// .objectiveEvidenceInputGroup {
+//     .input-group-addon, .input-group-btn {
+//         width:30px !important;
+//     }
+// }
+
+.sjogrensSymptomsStart {
+    .input-group-addon, .input-group-btn {
+        width:70px !important;
+    }
+}
+
+
+.sjogrensSymptomsSuggestiveStart {
+    .input-group-addon, .input-group-btn {
+        width:70px !important;
+    }
+}
+
+.sjogrensDiagnosis {
+    .input-group-addon, .input-group-btn {
+        width:70px !important;
+    }
+}
+
+.monthInput{
+    width:70px;
+}
+
+.yearInput{
+    width:85px;
+}
+
+
+
+
+
+
+
+.categories {
+// .panel-body{
+//     padding:5px 3px !important;
+// }
+
+    .list-group-item{
+        padding:1px 6px !important;
+        border:1px solid $light-color !important;
+       
+    }
+
+    .list-group-item-info{
+        background-color: $light-color !important;
+        color: $dark-color !important;
+        border:1px solid $dark-color !important;
+    }
+
+    .list-group-item-info.active{
+        background-color: $dark-color !important;
+        color:$light-color !important;
+    }
+
+    
+    .list-group-item-success{
+        background-color: $light-color !important;
+        color: $success-color !important;
+        border:1px solid $success-color !important;
+    }
+
+    .list-group-item-success.active{
+
+
+        background-color: $success-color !important;
+        color:$light-color !important;
+    }
+}
+
+.categories-container{
+    .panel-body{
+        padding:1px 3px !important;
+    }
+    .list-group {
+        margin-bottom: 0px !important;
+    }
+}
+
+
+
+.attendance-history-menu-item {
+    // .panel-body{
+    //     padding:5px 3px !important;
+    // }
+    
+        .list-group-item{
+            padding:1px 0px !important;
+            // border:1px solid $light-color !important;
+        border: 0px #fff !important;
+        }
+    
+        .list-group-item-info{
+             background-color: #fff !important;
+            color:$dark-color !important;
+        }
+    
+        .list-group-item-info.active{
+            background-color: $dark-color !important;
+            color: $light-color !important;
+            border:1px solid $dark-color !important;
+
+            // .btn-sq-xs-attendance-menu {
+            //     @extend .btn-sq-xs;
+            //   padding:5px 3px !important;
+            //   background-color: $light-color !important
+            // }
+        }
+
+
+          .btn-sq-xs-attendance-menu {
+              @extend .btn-sq-xs;
+            padding:5px 3px !important;
+            vertical-align: unset !important;
+          }
+
+    }
+    
+
+
+
+.attendance-history-container{
+    .panel-body{
+        padding:5px 10px !important;
+    }
+
+    .list-group {
+        margin-bottom: 0px !important;
+    }
+}
+
+.attendance-history{
+    display:none;
+
+    .list-group-item{
+        padding:1px 15px !important;
+        border:1px solid $light-color !important;
+    }
+
+    .list-group-item-info{
+        background-color: $dark-color !important;
+        color:$light-color !important;
+        .badge {
+            background-color: $light-color !important; 
+            color: $dark-color !important;
+        }
+    }
+
+    .list-group-item-info.active{
+        background-color:$light-color !important; 
+        color:$dark-color !important;
+        border:1px solid $dark-color !important;
+
+        .badge {
+            background-color: $dark-color !important; 
+            color:  $light-color !important; 
+        }
+    }
+
+    .attendance-button-container {
+        .btn-attendance-info{
+            background-color: $dark-color !important;
+            color:$light-color !important;
+            border:1px solid $light-color !important;
+        }
+
+        .btn-attendance-active{
+            background-color:$light-color !important; 
+            color:$dark-color !important;
+            border:1px solid $dark-color !important;
+        }
+    }
+}
+
+.positive-result{
+    background-color: $positive-result;
+    padding: 2px;
+@include add-alert($light-color,$positive-result);
+    .funkyradio input[type="radio"]:hover:not(:checked) ~ label, .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+        color: #fff !important;
+    }
+
+    .funkyradio input[type="radio"]:checked ~ label, .funkyradio input[type="checkbox"]:checked ~ label{
+        color: #fff !important;
+    }
+
+    .funkyradio input[type="radio"]:empty ~ label:before, .funkyradio input[type="checkbox"]:empty ~ label:before {
+        background-color: #fff !important;
+    }
+
+}
+
+.negative-result{
+    background-color: $negative-result;
+    padding: 2px;
+    @include add-alert($light-color,$negative-result);
+    
+    .funkyradio input[type="radio"]:hover:not(:checked) ~ label, .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+        color: #fff !important;
+    }
+
+    .funkyradio input[type="radio"]:checked ~ label, .funkyradio input[type="checkbox"]:checked ~ label{
+        color: #fff !important;
+    }
+
+    .funkyradio input[type="radio"]:empty ~ label:before, .funkyradio input[type="checkbox"]:empty ~ label:before {
+        background-color: #fff !important;
+    }
+}
+
+
+.react-numeric-input{
+    font-size:small !important;
+}
+
+.alert-success, .alert-danger, .alert-warning, .alert-info {
+    padding:0 5px !important;
+    margin-bottom: 18px !important;
+    // text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    border-radius: 4px !important;
+
+}
+
+
+
+ .alert-warning {
+    color: #fff !important;
+    background-color: $warning-color !important;
+    border: 1px solid $warning-color !important;
+}
+
+.alert-success{
+    color:  #fff !important;
+    background-color:  #3c763d !important;
+    border: 1px solid  #3c763d !important;
+}
+
+.alert-danger {
+    color: #fff !important;
+    background-color: #a94442 !important;
+    border: 1px solid #a94442 !important;
+}
+
+.alert-info {
+    color: #31708f !important;
+    background-color: #d9edf7 !important;
+    border-color: #bce8f1 !important;
+
+}
+
+
+.weighting-header{
+    font-weight: bold;
+   // color:$page-header-color;
+}
+/*
+
+ .alert-warning {
+    color: #fff !important;
+    background-color: #f0ad4e !important;
+    border: 1px solid #f0ad4e !important;
+}
+
+.alert-success{
+    color:  #fff !important;
+    background-color:  #5cb85c !important;
+    border: 1px solid  #5cb85c !important;
+}
+
+.alert-danger {
+    color: #fff !important;
+    background-color: #d9534f !important;
+    border: 1px solid #d9534f!important;
+}
+
+*/
+
+
+.complete-visit-container{
+    padding:5px !important;
+}
+
+.completed-visit{
+    font-weight:bold !important;
+    margin:0 !important;    
+}
+
+
+.complete-visit{
+    cursor: pointer !important;
+    font-weight:bold !important;
+    margin:0 !important;
+}
+
+
+
+
+.complete-visit-warning-message {
+    padding:10px !important;
+    //font-weight:bold !important;
+    
+}
+
+
+.fa-empty {
+    width: 20px !important;
+    display: inline-block;
+}
+
+.fa-pointer{
+    cursor: pointer  !important;
+}
+
+.current-medications-dose {
+    .form-inline {
+        .form-group {
+            height: 60px;
+        }
+}
+   span {
+    color:$base-font-color !important;
+    cursor:  pointer !important;
+   }
+    span:hover {
+        font-weight: bold !important;
+        color:$base-font-color !important;
+        cursor:  pointer !important;
+        text-decoration: none !important;
+    }
+   
+    i {
+       
+        cursor:  pointer !important;
+       }
+        i:hover {
+           
+            cursor:  pointer !important;
+            
+        }
+
+}
+
+.current-medications-dose-selected {
+       /* cursor:  pointer !important;*/
+        font-family: Lucida Sans Typewriter, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+        font-size: 0.85em;
+}
+
+
+.current-medications-dose-remove {
+    
+
+   span {
+    cursor:  pointer !important;
+   }
+    span:hover {
+        font-weight: bold !important;
+        cursor:  pointer !important;
+        text-decoration: none !important;
+    }
+}
+
+
+.current-medications-dose-remove-inline {
+    
+display: inline-block;
+
+   i {
+    cursor:  pointer !important;
+   }
+    i:hover {
+        font-weight: bold !important;
+        cursor:  pointer !important;
+        text-decoration: none !important;
+    }
+}
+
+.current-medications-other-treatment-add{
+    display:inline-block !important;
+    width:200px !important;
+       font-weight:bold;
+}
+
+.current-medications-treatment-name{
+    display:inline-block !important;
+    width:430px !important;
+   
+}
+
+.current-medications-treatment-dose-name {
+    display:inline-block !important;
+    width:200px !important;
+   
+}
+
+
+
+.past-medical-history-name{
+    display:inline-block !important;
+    width:250px !important;
+   
+}
+
+.past-medical-history-selected-family-members {
+    display:inline-block !important;
+   
+}
+
+.past-medical-history-patient{
+    font-weight: bold;
+    font-size:larger;
+    display: inline-block;
+    width:200px;
+}
+
+// .past-medical-history-patient-spacer{
+//     display: inline-block;
+//     width:200px;
+// }
+// .current-other-medications-remove {
+//     display:inline-block !important;
+    
+//    span {
+//     cursor:  pointer !important;
+//    }
+//     span:hover {
+//         font-weight: bold !important;
+//         cursor:  pointer !important;
+//         text-decoration: none !important;
+//     }
+
+// }
+
+
+.current-other-medications-update, .current-other-medications-add {
+    display:inline-block !important;
+    
+   span {
+    cursor:  pointer !important;
+   }
+    span:hover {
+        font-weight: bold !important;
+        cursor:  pointer !important;
+        text-decoration: none !important;
+    }
+
+}
+
+
+.past-medical-history-ul{
+    margin-left:23px;
+
+    li {
+        margin-left:30px;
+    }
+}
+
+.line-after{
+    position: relative;
+
+ span {
+    background-color: white;
+    padding-right: 10px;
+}
+
+&:after {
+    content:"";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5em;
+    border-top: 1px solid black;
+    z-index: -1;
+}
+
+}
+
+
+.roles-links {
+      a {
+        color: #ffffff;
+      }
+  
+       a:hover,
+       a:focus {
+        color: #ffffff;
+      }
+  
+}

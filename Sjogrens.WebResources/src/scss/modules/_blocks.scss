@@ -1,0 +1,281 @@
+/*Panel*/
+
+.panel-primary > .panel-heading {
+    @include add-background($dark-color);
+     @include add-border(5px, $secondary-color, top);
+     
+     @include add-border(1px, $secondary-color, left);
+     @include add-border(1px, $secondary-color, right);
+     
+
+}
+
+
+.panel-danger > .panel-heading {
+    @include add-background($danger-color);
+     @include add-border(5px, $secondary-color, top);
+     
+     @include add-border(1px, $secondary-color, left);
+     @include add-border(1px, $secondary-color, right);
+     
+
+}
+
+
+
+.panel-success > .panel-heading {
+    @include add-background($success-color);
+     @include add-border(5px, $secondary-color, top);
+     
+     @include add-border(1px, $secondary-color, left);
+     @include add-border(1px, $secondary-color, right);
+     
+
+}
+
+
+
+.panel-warning > .panel-heading {
+    @include add-background($warning-color);
+     @include add-border(5px, $secondary-color, top);
+     
+     @include add-border(1px, $secondary-color, left);
+     @include add-border(1px, $secondary-color, right);
+     
+
+}
+
+
+
+.panel-primary {
+     @include add-border(1px, $secondary-color, all);
+}
+
+/*Blocks*/
+
+.block {
+    // padding: 5px;
+    // margin-bottom: 5px;
+    h3 {
+        margin-top: 0;
+        padding-top: 0
+    }
+
+    iframe{
+        width:100%;
+    }
+}
+
+.block-primary{
+    @extend .block;
+    @include add-background($primary-color)
+}
+.block-secondary{
+    @extend .block;
+    @include add-background($secondary-color)
+}
+.block-light{
+    @extend .block;
+    @include add-background($light-color)
+}
+.block-dark{
+    @extend .block;
+    @include add-background($dark-color)
+}
+.block-center{
+    text-align:center !important;
+}
+
+.block-image img{
+    width:100%;
+}
+
+.block-border{
+    @include add-border(1px, #cccccc,all)
+}
+
+.block-primary-head {
+    h3{
+        padding:5px 5px 15px 10px;
+        @include add-background($primary-color);
+        margin:0;
+        font-size:18px;
+    }
+
+    .block-content{
+        @include add-border(1px, $primary-color, all);
+        padding:10px;
+    }
+
+    .block-content-no-border{
+        padding: 5px 5px 15px 40px;;
+    }
+}
+
+
+.block-baseline-head {
+
+    .block-content-no-border{
+        padding: 0 0 0 40px;;
+    }
+}
+
+
+
+.block-inclusion-criteria-head {
+    .block-content-no-border{
+        padding: 5px 5px 0px 40px;;
+    }
+}
+
+
+.current-medications-dose-container {
+    .block-content-no-border{
+        padding: 5px 5px 5px 30px;;
+    }
+}
+
+.ESSDAI-container {
+    .block-content-no-border{
+        padding: 5px 5px 5px 30px;;
+    }
+}
+
+.block-exclusion-criteria-head {
+    // h3{
+    //     padding:5px 5px 10px 10px;
+    //     @include add-background($danger-color);
+    //     margin:0;
+    //     font-size:18px;
+    //     @include border-radius(5px);
+    // }
+
+// i{
+//     color:$danger-color;
+// }
+
+    .block-content-no-border{
+        padding: 5px 5px 10px 40px;;
+    }
+}
+
+
+.block-icon{
+    h3{
+        padding:0;
+        margin:0;
+    }
+    
+    .icon{
+        float:left;
+        width:20%;
+        margin-top:10px;
+    }
+
+    .icon-content{
+        float:left;
+        width:70%;
+    }
+
+}
+
+.vertical-align-middle{
+    vertical-align:middle;
+}
+
+
+    
+.code-no-match{
+    width:80%;
+    display: block;
+    margin:10px auto !important;
+    word-break: break-all;
+}
+
+
+.row-bordered:after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid #ccc;
+    margin: 0 15px;
+  }
+
+
+
+
+  .essdai-domain-heading-list-group {
+    //  padding-left: 0;
+       margin-bottom: 10px; 
+       list-style-type: none;
+       /*use padding to move list item from left to right*/
+       padding-left: 1em;
+  
+  }
+  
+  li.essdai-domain-heading-list-group-item:before { 
+  
+      content: "–";
+      position: absolute;
+      /*change margin to move dash around*/
+      margin-left: -1em;
+  
+  }
+
+  
+  .essdai-domain-heading-list-group-item {
+      position: relative;
+      display: block;
+      padding: 0px 15px; 
+       margin-bottom: -1px; 
+      //background-color: #fff;
+    
+  }
+
+
+ .essdai-domain-detail-list-group {
+  //  padding-left: 0;
+     margin-bottom: 10px; 
+     list-style-type: none;
+     /*use padding to move list item from left to right*/
+     padding-left: 1em;
+    }
+
+
+li.essdai-domain-detail-list-group-item:before { 
+
+    content: "–";
+    position: absolute;
+    /*change margin to move dash around*/
+    margin-left: -1em;
+
+    font-weight: bold;
+    color: $page-header-color;
+
+}
+
+li.essdai-domain-detail-list-group-item>ul>li.essdai-domain-detail-list-group-item:before { 
+    
+        content: "•";
+        position: absolute;
+        /*change margin to move dash around*/
+        margin-left: -1em;
+    
+
+        font-weight: bold;
+        color: $dark-color;
+        font-size:1.6em;
+
+    }
+
+
+
+.essdai-domain-detail-list-group-item {
+    position: relative;
+    display: block;
+    padding: 0px 15px; 
+     margin-bottom: -1px; 
+    background-color: #fff;
+  
+}
+
+

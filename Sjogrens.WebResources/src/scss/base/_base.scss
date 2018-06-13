@@ -1,0 +1,459 @@
+body{
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+
+    line-height: 1.7em;
+    color:$base-font-color;
+	padding-top: 90px;
+	//background-color: lighten($secondary-color, 55% )
+    background-color: $background-color;
+}
+
+
+
+
+a {
+    color:$primary-color;
+}
+
+
+
+ul, li {
+    list-style: none;
+}
+
+input, textarea, button {
+    @include border-radius(0px);
+}
+
+img.device{
+    width:100%;
+}
+
+img.device-small{
+    width:70%;
+    margin-bottom: -40px
+}
+
+.hidden {
+    display: none !important;
+  }
+
+.visible-inline {
+      display:inline-block !important;
+  }
+
+.visible {
+    display:block !important;
+}
+  
+  hr {
+      margin:10px 0 10px 0 !important;
+  }
+
+.error{
+    color: $error !important;
+    font-size: 1rem;
+
+    input, textarea, select{
+    background-color:$error-background-color;
+    }
+    label{
+        color: $error;
+    }
+
+  & >  span{
+        color: $error !important;
+         font-weight: bold !important;
+         font-style: italic !important;
+         //padding:5px;
+     }
+
+    & > span.info{
+        color: $error !important;
+         font-style: italic !important;
+         font-size: 1rem !important;
+         //padding:5px;
+     }
+
+    & > i{
+        color: $error !important;
+     }
+    & > div{
+        color:  $error;
+         font-weight: bold;
+         font-style: italic;
+        //  padding:5px;
+     }
+}
+
+
+.success{
+    input{
+    background-color:$success-background-color;
+    }
+    label{
+        color: $success;
+    }
+
+    span{
+        color: $success;
+         font-weight: bold;
+         font-style: italic;
+         padding:5px;
+     }
+
+    //  div{
+    //     color: #D8000C;
+    //      font-weight: bold;
+    //      font-style: italic;
+    //      padding:5px;
+    //  }
+}
+
+
+
+.w-150{
+    display:inline-block;
+    width:150px;
+}
+.mr-1{
+    margin-right: ($spacer * .25) !important;
+}
+.mr-2{
+    margin-right: ($spacer * .5) !important;
+}
+.mr-3{
+    margin-right: ($spacer * .75) !important;
+}
+.mr-3{
+    margin-right: ($spacer * 1) !important;
+}
+
+
+.mt-1{
+    margin-top: ($spacer * .25) !important;
+}
+.mt-2{
+    margin-top: ($spacer * .5) !important;
+}
+.mt-3{
+    margin-top: ($spacer * .75) !important;
+}
+.mt-4{
+    margin-top: ($spacer * 1) !important;
+}
+
+
+.mb-1{
+    margin-bottom: ($spacer * .25) !important;
+}
+.mb-2{
+    margin-bottom: ($spacer * .5) !important;
+}
+.mb-3{
+    margin-bottom: ($spacer * .75) !important;
+}
+.mb-4{
+    margin-bottom: ($spacer * 1) !important;
+}
+
+
+
+.mt-5{
+    @include add-margin(5px, top)
+}
+
+
+.mt-10{
+    @include add-margin(10px, top)
+}
+
+.mt-20{
+    @include add-margin(20px, top)
+}
+
+.mt-30{
+    @include add-margin(30px, top)
+}
+
+.mt-50{
+    @include add-margin(50px, top)
+}
+
+.mb-0{
+    @include add-margin(0px, bottom)
+}
+
+
+.mb-5{
+    @include add-margin(5px, bottom)
+}
+
+
+.mb-10{
+    @include add-margin(10px, bottom)
+}
+
+.mb-20{
+    @include add-margin(20px, bottom)
+}
+
+.mb-30{
+    @include add-margin(30px, bottom)
+}
+
+.mb-50{
+    @include add-margin(50px, bottom)
+}
+
+
+.mr-5{
+    @include add-margin(5px, right)
+}
+
+
+.mr-10{
+    @include add-margin(10px, right)
+}
+
+.mr-20{
+    @include add-margin(20px, right)
+}
+
+.mr-30{
+    @include add-margin(30px, right)
+}
+
+.mr-50{
+    @include add-margin(50px, right)
+}
+
+
+.mr-150{
+    @include add-margin(150px, right)
+}
+
+
+.ml-5{
+    @include add-margin(5px, left)
+}
+
+
+.ml-10{
+    @include add-margin(10px, left)
+}
+
+.ml-15{
+    @include add-margin(15px, left)
+}
+
+.ml-20{
+    @include add-margin(20px, left)
+}
+
+.ml-50{
+    @include add-margin(50px, left)
+}
+
+.ml-150{
+    @include add-margin(150px, left)
+}
+
+
+
+.zIndex-1{
+    z-index: 1 !important;
+}
+
+.ReactModal__Overlay {
+    z-index: 9999999;
+}
+
+.flex-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+
+    .flex-content{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+
+.react-countdown-clock {
+
+    canvas{
+        position:absolute;
+        left:35%;
+    }
+}
+
+
+.nowrap { white-space: nowrap; }
+
+label {
+    font-weight:normal !important;
+}
+
+.form-group {
+    margin-bottom:5px;
+}
+
+.panel {
+margin-bottom: 5px !important;
+}
+
+.panel-heading{
+    padding:5px 10px !important;
+    border-bottom:none !important;
+}
+
+.pl-0{
+    padding-left:0px !important;
+}
+
+.pl-5{
+    padding-left:5px !important;
+}
+
+.pl-10{
+    padding-left:10px !important;
+}
+
+.pl-15{
+    padding-left:15px !important;
+}
+
+.pl-20{
+    padding-left:20px !important;
+}
+
+.pr-40{
+    padding-right:40px !important;
+}
+
+
+
+
+  .row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+  }
+
+
+  .stronger{
+      font-size: x-large;
+  }
+
+  .invisible{
+      visibility: hidden;
+  }
+
+
+  .capitals{
+    text-transform: uppercase;
+  }
+
+  .underline {
+    text-decoration: underline;
+  }
+
+  .table-osss {
+      .selectable {
+          cursor:pointer;
+      }
+      .not-selectable {
+        cursor:not-allowed;
+    }
+
+    .eye-selected-0{
+        background-color:  $success-color;
+        color: $light-color;
+    }
+
+    .eye-selected-1{
+        background-color:   $warning-color;
+        color: black;
+    }
+
+    .eye-selected-2{
+        background-color:  $warning-danger-color;
+        color: black;
+    }
+
+    .eye-selected-3{
+        background-color:   $danger-color;
+        color: $light-color;
+    }
+
+    .spacerCol{
+        width:0.3rem;
+        background-color: #ddd !important;
+        padding:0!important;
+    }
+  }
+
+
+
+  .table-admin-access-rights{
+td{
+    padding:5px;
+}
+  }
+
+  .sjogrens-checkbox{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+
+
+  .modal {
+    position: fixed;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: Black;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    -moz-opacity: 0.8;
+    display: none;
+}
+.center {
+    z-index: 1000;
+    padding: 10px;
+    width: 130px;
+    background-color: White;
+    border-radius: 10px;
+    filter: alpha(opacity=100);
+    opacity: 1;
+    -moz-opacity: 1;
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+}
+.centerimg {
+    height: 128px;
+    width: 128px;
+}
+
+.time-control{
+    padding:6px !important;
+}

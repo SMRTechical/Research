@@ -1,0 +1,238 @@
+﻿@inherits Sjogrens.Client.Pages.BasePage
+@using Microsoft.AspNet.Identity
+@using System.Security.Claims
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sjogrens</title>
+    <script>
+        window.onload = window.history.forward(1);
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+
+        if (window.attachEvent && !window.addEventListener) {
+            window.location = '/notsupported';
+        }
+       
+        document.onkeydown = function () {
+            switch (event.keyCode) {
+                case 116: //F5 button
+                    event.returnValue = false;
+                    event.keyCode = 0;
+                    return false;
+                case 82: //R button
+                    if (event.ctrlKey) {
+                        event.returnValue = false;
+                        event.keyCode = 0;
+                        return false;
+                    }
+            }
+        }
+
+        //on backspace down + optional callback
+        function onBackspace(e, callback){
+            var key;
+            if(typeof e.keyIdentifier !== "undefined"){
+                key = e.keyIdentifier;
+
+            }else if(typeof e.keyCode !== "undefined"){
+                key = e.keyCode;
+            }
+            if (key === 'U+0008' || 
+                key === 'Backspace' || 
+                key === 8) {
+                if(typeof callback === "function"){
+                    callback();
+                }
+                return true;
+            }
+            return false;
+        }
+
+
+
+        //document.addEventListener('keydown', (event) => {
+        //    const keyName = event.key;
+        //    alert('keydown event\n\n' + 'key: ' + keyName);
+        //});
+        
+
+        //event listener
+        window.addEventListener('keydown', function (e) {
+
+            switch(e.target.tagName.toLowerCase()){
+                case "input":
+                case "textarea": 
+                case "span":
+                    break;
+                case "body":
+                    onBackspace(e,function(){
+                        e.preventDefault();
+                    });
+
+                    break;
+            }
+        }, true);
+
+
+    </script>
+    <link href="~/assets/css/vendor.css" rel="stylesheet" />
+    <link href="~/assets/css/app.css" rel="stylesheet" />
+    <link href="~/Content/timeout-dialog.css" rel="stylesheet"/>
+</head>
+<body onmousemove="handleAppActivity()" onkeydown="handleAppActivity();" onmousedown="handleAppActivity()">
+        <div class="navbar navbar-default navbar-fixed-top header-main" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+@if (Request.IsAuthenticated)
+{
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+}
+                    @Html.ActionLink(@ApplicationName, "Index", "Home", new { area = "" }, new { @title = "Sjogrens Home", @class = "navbar-brand fa fa-home fa-3" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid body-content">
+            <div id="progress" class="modal">
+                <div class="center">
+                    <img src="~/Content/images/AjaxLoaderImg.gif" />
+                </div>
+            </div>
+            @RenderBody()
+            <footer class="navbar-fixed-bottom footer-main">
+                <div class="row">
+                    <div class="col-md-6 pull-left copyright">
+                        <span>&copy; @DateTime.Now.Year. @CopyrightMessage</span>
+                    </div>
+                    <div class="col-md-6 pull-right version">
+                        <span class="pull-right">version @ApplicationVersion</span>
+                    </div>
+
+                </div>
+
+
+            </footer>
+        </div>
+
+        <script src="~/Scripts/jquery-1.12.4.js"></script>
+        <script src="~/Scripts/jquery-ui.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script> 
+        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/timeout-dialog.js"></script>
+        <script src="~/assets/js/vendor.bundle.js"></script>
+        <script src="~/assets/js/app.bundle.js"></script>
+        @RenderSection("scripts", required: false)
+        @functions {
+
+            public int PopupShowDelay
+            {
+                get { return 60 * Session.Timeout; }
+            }
+
+        }
+
+        <script>
+
+            //var defaultTimeoutSeconds = (sjogrensInitConfig.appConfig.timeoutMinutes * 60);
+            //var timeoutInProgress = false;
+            //var timeoutWarningSeconds = (sjogrensInitConfig.appConfig.timeoutWarningMinutes * 60);
+            //var timeoutSeconds = defaultTimeoutSeconds;
+
+            function Showmessage() {
+                $('#successMessage').html('Your changes have been saved.').css("display","block");
+            }
+
+            $('.admin-role:checkbox').change(function(){
+                var $self = this; // save the current object - checkbox that was clicked.
+               
+               if (this.checked) {
+                   
+                  // var $self = this; // save the current object - checkbox that was clicked.
+                  // $self.checked = true; // make the clicked checkbox checked no matter what.
+                  
+                    $(this).closest('div.role-container') // find the closest parent span...
+                        .siblings('div.role-container') // get the siblings of the span
+                        .find(':checkbox').attr('checked',false); // then find the checbox inside each span and then uncheck i
+
+
+                    $('#successMessage').html('').css("display","none");
+               }
+               else {
+                   $self.checked = true; // make the clicked checkbox checked no matter what.
+               }
+            });
+
+
+            $('.admin-access:checkbox').change(function(){
+                $('#successMessage').html('').css("display","none");
+            });
+
+
+            var defaultTimeoutSeconds = (@System.Web.Configuration.WebConfigurationManager.AppSettings["TimeoutMinutes"] * 60);
+            var timeoutInProgress = false;
+            var timeoutWarningSeconds = (@System.Web.Configuration.WebConfigurationManager.AppSettings["TimeoutWarningMinutes"] * 60);
+            var timeoutSeconds = defaultTimeoutSeconds;
+
+
+
+
+            function handleAppActivity() {
+                if ('@User.Identity.IsAuthenticated' == 'True') {
+                    resetTimeout();
+                }
+            };
+
+           
+
+
+            function resetTimeout() {
+                 //console.log('resetTimeout');
+                // console.log(jQuery.timeoutDialog.popUpVisible);
+                if (!jQuery.timeoutDialog.popUpVisible) {
+                    timeoutSeconds = defaultTimeoutSeconds;
+                    //console.log('resetTimeout start')
+                    //console.log(jQuery.timeoutDialog.alertSetTimeoutHandle)
+                   // console.log('fnKeepAlive');
+
+                    fnKeepAlive();
+                    //fnTimeOut();
+
+                }
+            };
+
+            function fnKeepAlive() {
+                if ('@User.Identity.IsAuthenticated' == 'True') {
+                   // console.log('fnKeepAlive')
+                    jQuery.timeoutDialog.keepAlive();
+                }
+            };
+
+            function fnTimeOut() {
+                if ('@User.Identity.IsAuthenticated' == 'True') {
+
+                    jQuery.timeoutDialog.setupDialogTimer({
+                        timeout: timeoutSeconds,
+                        countdown: timeoutWarningSeconds,
+                        logout_redirect_url: '@Url.Action("logout", "Home")',
+                        keep_alive_url: '@Url.Action("keepalive", "Home")'
+                    });
+                }
+            };
+            fnTimeOut();
+
+        </script>
+</body>
+</html>

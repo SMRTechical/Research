@@ -1,0 +1,44 @@
+﻿@using System.Reflection
+@using System.Diagnostics
+@inherits Sjogrens.Client.Pages.BasePage
+@{
+    ViewBag.Title = "Sjogrens";
+}
+
+
+<script>
+    var sjogrensInitConfig = @Html.Raw(Serializier.Serialize(new
+                   {
+                     //  Organisations = this.Organisations,
+                       AppConfig = new
+                       {
+                          
+                           TimeoutMinutes = this.TimeoutMinutes,
+                           TimeoutWarningMinutes = this.TimeoutWarningMinutes,
+                           EnableSessionTimeout = !this.DisableAuthorization
+                       },
+                       AppInfo = new
+                       {
+                           Version = this.Version
+                       },
+                       UserInfo = new
+                       {
+                           UserRole = this.UserRole,
+                           UserName = this.UserName,
+                           UserOrganisationCode = this.UserOrganisationCode,
+                          // UserActiveInActive = this.UserActiveInactive,
+                           UserAuthorized = this.UserAuthorized
+                       }
+                   }));
+
+    var initConfig ={};
+
+</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div id="root" class="mt-4">
+    
+</div>
+
+}

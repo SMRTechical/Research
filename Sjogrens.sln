@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjogrens.Core", "Sjogrens.Core\Sjogrens.Core.csproj", "{EDD06A43-C685-4EC2-A93F-AAA537C8396D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjogrens.Client", "Sjogrens.Client\Sjogrens.Client.csproj", "{4D1FB18B-7B75-46D2-A239-4B3C31DA1756}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Sjogrens.WebResources", "Sjogrens.WebResources\", "{505C9492-7779-4109-8377-0881F04F9603}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61796"
+		Debug.AspNetCompiler.PhysicalPath = "Sjogrens.WebResources\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61796\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61796"
+		Release.AspNetCompiler.PhysicalPath = "Sjogrens.WebResources\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61796\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61796"
+		SlnRelativePath = "Sjogrens.WebResources\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjogrens.DataApi", "Sjogrens.DataApi\Sjogrens.DataApi.csproj", "{3C13146D-52E0-40FC-953D-6B04FD05158B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Sjogrens.Database", "Sjogrens.Database\Sjogrens.Database.sqlproj", "{B1D11995-13C1-4890-A661-739A6B492E72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjogrens.Data", "Sjogrens.Data\Sjogrens.Data.csproj", "{66A0E8C1-6927-4B30-985C-76A573ADC470}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDD06A43-C685-4EC2-A93F-AAA537C8396D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD06A43-C685-4EC2-A93F-AAA537C8396D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD06A43-C685-4EC2-A93F-AAA537C8396D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD06A43-C685-4EC2-A93F-AAA537C8396D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D1FB18B-7B75-46D2-A239-4B3C31DA1756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D1FB18B-7B75-46D2-A239-4B3C31DA1756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D1FB18B-7B75-46D2-A239-4B3C31DA1756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D1FB18B-7B75-46D2-A239-4B3C31DA1756}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505C9492-7779-4109-8377-0881F04F9603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505C9492-7779-4109-8377-0881F04F9603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505C9492-7779-4109-8377-0881F04F9603}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{505C9492-7779-4109-8377-0881F04F9603}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{3C13146D-52E0-40FC-953D-6B04FD05158B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C13146D-52E0-40FC-953D-6B04FD05158B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C13146D-52E0-40FC-953D-6B04FD05158B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C13146D-52E0-40FC-953D-6B04FD05158B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D11995-13C1-4890-A661-739A6B492E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D11995-13C1-4890-A661-739A6B492E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D11995-13C1-4890-A661-739A6B492E72}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B1D11995-13C1-4890-A661-739A6B492E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D11995-13C1-4890-A661-739A6B492E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D11995-13C1-4890-A661-739A6B492E72}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{66A0E8C1-6927-4B30-985C-76A573ADC470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A0E8C1-6927-4B30-985C-76A573ADC470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A0E8C1-6927-4B30-985C-76A573ADC470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A0E8C1-6927-4B30-985C-76A573ADC470}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

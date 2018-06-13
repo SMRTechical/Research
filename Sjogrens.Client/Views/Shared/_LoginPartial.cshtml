@@ -1,0 +1,74 @@
+﻿@using Microsoft.AspNet.Identity
+@using System.Security.Claims
+@using Sjogrens.Client.Models
+@if (Request.IsAuthenticated)
+{
+
+    var identity = (ClaimsIdentity)User.Identity;
+    var fullname = identity.FindFirstValue("FullName") ?? User.Identity.GetUserName();
+
+
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.Label("Logged in As: " + fullname)
+            </li>
+            <li>
+                @Html.Label("Date: " + @DateTime.Today.ToString("dd/MM/yyyy")) 
+            </li>
+            
+             @if (User.IsInRole("Administrator"))
+             {
+            @*<li>@Html.ActionLink("Roles", "Index", "Roles")</li>
+            <li>@Html.ActionLink("Users", "Index", "Users")</li>*@
+
+            <li>@Html.ActionLink("Admin", "Index", "Account")</li>
+            @*<li>@Html.ActionLink("Roles", "Index", "Roles")</li>*@
+             }
+             
+
+
+            <li><a href="javascript:document.getElementById('logoutForm').submit()" data-toggle="tooltip" alt="logout" title="logout"><i class="fa fa-power-off fa-3 mr-20" aria-hidden="true"></i></a></li>
+        </ul>
+    }
+}
+@*else
+{
+    using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "navbar-form navbar-right", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="input-group">
+           
+            @Html.ValidationSummary(true, "", new { @class = "text-danger-login" })
+
+        </div>
+
+        <div class="input-group">
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger-login" })
+        </div>
+        <div class="input-group">
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger-login" })
+        </div>
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                @Html.TextBoxFor(m => m.UserName, new { placeholder = "Username", @class = "form-control" })
+
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                @Html.PasswordFor(m => m.Password, new { placeholder = "Password", @class = "form-control" })
+
+            </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    
+
+    }
+   
+}*@

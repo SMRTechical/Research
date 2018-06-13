@@ -1,0 +1,89 @@
+﻿@using Sjogrens.Client.Models
+@model LoginRegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+
+
+<div class="row">
+    <div class="col-xs-6">
+        <img src="/Content/Images/logo.png" class="pull-left" />
+    </div>
+    <div class="col-xs-6">
+        <img src="~/Content/Images/uhb-logo-small.png" class="pull-right paddingTop40" />
+    </div>
+</div>
+<div class="row marginTop50">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-login">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-4 col-lg-offset-4">
+                        <a href="#" class="active" id="login-form-link">Register</a>
+                    </div>
+
+                </div>
+                <hr>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <section id="registerForm">
+
+                            <span>Test</span>
+
+                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                              
+                                @Html.ValidationSummary("", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Register.Email, new { @class = "col-md-3 col-md-offset-1 control-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.Register.Email, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Register.Password, new { @class = "col-md-3 col-md-offset-1 control-label" })
+                                    <div class="col-md-8">
+                                        @Html.PasswordFor(m => m.Register.Password, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Register.ConfirmPassword, new { @class = "col-md-4 control-label" })
+                                    <div class="col-md-7">
+                                        @Html.PasswordFor(m => m.Register.ConfirmPassword, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" class="form-control btn btn-register" value="Register" />
+                                    </div>
+                                </div>
+
+                                <p class="text-center">
+                               
+                                @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink",  @class = "anchor-login" })
+                                 </p>
+                            }
+
+                        </section>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

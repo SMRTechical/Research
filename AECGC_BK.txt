@@ -1,0 +1,434 @@
+import React,{Component} from 'react';
+import ReactDOM from 'react-dom';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import PanelDefault from '../../components/generic/panel-default';
+import AlertSuccess from '../../components/generic/alert-success';
+import AlertDanger from '../../components/generic/alert-danger';
+import {padDayMonthWithZero,handleDateFormat,handleDateTimeFormat} from '../../factory/date-functions';
+import {getDetailsControlValue} from '../../factory/visit'
+import AmericanEuropeanCGCForm from  '../../components/visit/american-european-cgc-form'
+import AttendanceCard from  '../../components/visit/attendance-card'
+import {getVisitHeader, visitHeaderClear, saveVisitHeader,getSavedVisitHeader} from '../../actions/visit-header';
+import {visitCategoriesClear,getVisitCategories } from '../../actions/visit-categories';
+import {saveVisit, getVisit, getSavedVisit,visitClear} from '../../actions/visit';
+import {getPatientState,patientStateClear} from '../../actions/patient-state';
+import {ALERTS} from '../../constants/information/messages';
+import classnames from 'classnames'
+import {paths} from '../../constants/paths/environment';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {categories} from '../../config/categories';
+import {patientHasPhysiciansDiagnosis, patientMeetsAECGCriteria, alternateDiagnosis} from '../../config/controls/diagnosis';
+import FadeIn from '../../components/animation/fade-in';
+
+class AmericanEuropeanCGC extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            patientMeetsAECGCGCA:null,//this.props.visitResult && this.props.visitResult.data && this.props.visitResult.data.visits && this.props.visitResult.data.visits.length > 0 ? this.getDetailsControlValue(categories.diagnosis.id, patientMeetsAECGCriteria.chkPatientMeetsAECGCriteria,this.props.visitResult.data.details):'',
+            visitHeaderId:null,
+            completed:null,
+            newVisit:null,
+            dateOfVisit:null,
+            token:null,
+            initialVisit:null,
+            cdeaId:null,
+            visitId:null,
+            AECGCGlobalError:'',
+            visitHeaderPostParams:null,
+            initialLoad:true
+        };
+        this.renderEmpty = this.renderEmpty.bind(this);
+        this.renderAttendanceCard = this.renderAttendanceCard.bind(this);
+        this.handleSaveVisitHeader = this.handleSaveVisitHeader.bind(this);
+        this.loadExistingVisitState = this.loadExistingVisitState.bind(this);
+        this.handleGetAECGCGlobalError = this.handleGetAECGCGlobalError.bind(this);
+        this.handleSaveVisit = this.handleSaveVisit.bind(this);
+        this.renderLoadingMessage = this.renderLoadingMessage.bind(this);
+
+        this.renderMeetsAECGCGCACriteria = this.renderMeetsAECGCGCACriteria.bind(this);
+        this.renderDoesNotMeetsAECGCGCACriteria = this.renderDoesNotMeetsAECGCGCACriteria.bind(this);        
+        this.renderYetToMeetAECGCGCACriteria = this.renderYetToMeetAECGCGCACriteria.bind(this);
+        this.loadVisitData = this.loadVisitData.bind(this);
+
+    }
+       
+    componentDidMount () {
+        
+console.log('aecgc did mount')
+        
+     //    if ((this.props.location.state && this.props.location.state.initialLoad) || !this.props.patientStateResult.data.hasVisits) {
+    //if ((this.props.location.state && this.props.location.state.initialLoad)) {
+//console.log('aecgc did mount doin')
+        if (this.props.location.state && this.props.location.state.visitHeaderResult){
+        
+           console.log('aecgc did mount')
+        
+                this.setState({
+
+                    visitHeaderId: this.props.location.state.visitHeaderResult.visitHeaderId,
+                    completed: this.props.location.state.visitHeaderResult.completed,
+                    newVisit: this.props.location.state.visitHeaderResult.newVisit,
+                    initialVisit: this.props.location.state.visitHeaderResult.initialVisit,
+                    dateOfVisit: this.props.location.state.visitHeaderResult.dateOfVisit,
+                    token:this.props.location.state.visitHeaderResult.token,
+                    
+                    patientMeetsAECGCGCA: this.props.location.state.visitResult && 
+                                            this.props.location.state.visitResult.data && 
+                                            this.props.location.state.visitResult.data.visits && 
+                                            this.props.location.state.visitResult.data.visits.length > 0 ? 
+                                            getDetailsControlValue(categories.diagnosis.id, patientMeetsAECGCriteria.chkPatientMeetsAECGCriteria, 
+                                                this.props.location.state.visitResult.data.details):null
+                });
+
+    //             var visitHeaderParams = {
+    //                 token: this.props.match.params.token,
+    //                 dateOfVisit:null
+    //             }
+
+               
+
+    //    console.log('aecgc visitheader');
+    //             this.props.getVisitHeader(visitHeaderParams)
+    //             .then( vh=>this.loadExistingVisitState(vh))
+    //             .catch(this.handleGetVisitHeaderGlobalError)
+
+
+                // var visitCategoriesGetParams = {
+                //     token: this.state.token
+                // }
+                
+                //    this.props.getVisitCategories(visitCategoriesGetParams)
+                //     .catch(this.handleGetAECGCGlobalError)   
+            }
+            else {
+        
+           
+
+            console.log('this.props.match.params.token');
+             //   console.log(this.props.match.params.token);
+                var visitHeaderParams = {
+                    token: this.props.match.params.token,
+                    dateOfVisit:null
+                }
+
+               
+
+        console.log('aecgc visitheader');
+                this.props.getVisitHeader(visitHeaderParams)
+                .then( vh=>this.loadExistingVisitState(vh))
+                .catch(this.handleGetVisitHeaderGlobalError)
+               
+            }
+        
+        //  }
+           
+        
+               }
+
+    componentWillReceiveProps(nextProps){
+     console.log('111')
+       
+if  (this.props.match.params != nextProps.match.params) {
+     console.log('22222');
+    // console.log(this.props.match.params);
+    // console.log(nextProps.match.params)
+    // console.log(this.props.match.params != nextProps.match.params)
+    if (nextProps.location.state && nextProps.location.state.visitHeaderResult){
+        
+
+        console.log('333333')
+        console.log(nextProps.location.state.visitHeaderResult.token)
+        console.log(nextProps)
+        
+        this.setState({
+                        visitHeaderId: nextProps.location.state.visitHeaderResult.visitHeaderId,
+                        completed: nextProps.location.state.visitHeaderResult.completed,
+                        newVisit: nextProps.location.state.visitHeaderResult.newVisit,
+                        initialVisit: nextProps.location.state.visitHeaderResult.initialVisit,
+                        dateOfVisit: nextProps.location.state.visitHeaderResult.dateOfVisit,
+                        token:nextProps.location.state.visitHeaderResult.token,
+                        patientMeetsAECGCGCA: nextProps.visitResult && nextProps.visitResult.data && nextProps.visitResult.data.details && nextProps.visitResult.data.details.length > 0 ? getDetailsControlValue(categories.diagnosis.id, patientMeetsAECGCriteria.chkPatientMeetsAECGCriteria, nextProps.visitResult.data.details):null
+                      
+                    });
+
+
+                    console.log('existing patientk88888888888888')
+
+               
+                    
+
+
+}
+     else {
+         console.log('existing patient')
+                 var visitHeaderParams = {
+                        token: nextProps.match.params.token,
+                        dateOfVisit:null
+                    }
+           // console.log('aecgc nextprops visit header');
+                    nextProps.getVisitHeader(visitHeaderParams)
+                    .then( vh=>this.loadExistingVisitState(vh))
+                    .catch(this.handleGetVisitHeaderGlobalError)               
+     }
+    }
+    else {
+
+        console.log('reload after first time');
+this.setState({
+    initialLoad: false,
+                patientMeetsAECGCGCA: nextProps.visitResult && nextProps.visitResult.data && nextProps.visitResult.data.visits && nextProps.visitResult.data.visits.length > 0 ? getDetailsControlValue(categories.diagnosis.id, patientMeetsAECGCriteria.chkPatientMeetsAECGCriteria, nextProps.visitResult.data.details):''
+            })
+    }
+
+
+          
+       
+     
+        }
+
+    handleGetAECGCGlobalError(error){        
+        this.setState({
+            AECGCGlobalError:error.message,
+        })
+      }
+    
+    handleSaveVisitHeader(visit,detail){
+                var visitHeaderPostParams = {
+                    token: this.state.token,
+                    dateOfVisit: this.state.dateOfVisit
+                }
+
+
+                this.props.saveVisitHeader(visitHeaderPostParams)
+                .then(vh=> this.props.getSavedVisitHeader(visitHeaderPostParams))
+                .then(ph=> this.handleSaveVisit(ph,visit,detail))
+                .catch(this.handleGetAECGCGlobalError)
+    
+            }
+
+
+handleSaveVisit(visitHeader, visit,detail){
+
+
+      for (var v of visit) {
+        v.visitHeaderId = visitHeader.visitHeaderId
+     }
+     for (var d of detail) {
+        d.visitHeaderId = visitHeader.visitHeaderId
+     }
+
+
+
+     var visitPostParams = {
+        token: this.state.token,
+        visit: visit,
+        detail:detail
+    }
+
+
+    var visitGetParams = {
+        visitHeaderId:  visitHeader.visitHeaderId,
+        token: this.state.token
+    }
+
+   var patientStateGetParams = {
+    token: this.state.token
+}
+
+var visitCategoriesGetParams = {
+    token: this.state.token
+}
+
+    this.props.saveVisit(visitPostParams)
+    .then(v=> this.props.getSavedVisit(visitGetParams))
+    .then(p=> this.props.getPatientState(patientStateGetParams))
+    .then(q=> this.props.getVisitCategories(visitCategoriesGetParams))
+    .catch(this.handleGetAECGCGlobalError)
+
+}
+
+    
+
+loadExistingVisitState(visitHeader){
+    this.setState({
+        visitHeaderId:visitHeader.visitHeaderId,
+        completed:visitHeader.completed,
+        newVisit: visitHeader.newVisit,
+        initialVisit: visitHeader.initialVisit,
+        dateOfVisit: visitHeader.dateOfVisit,
+        token:visitHeader.token
+    });
+
+    var visitGetParams = {
+        visitHeaderId:  visitHeader.visitHeaderId,
+        token: this.state.token
+    }
+  
+    var visitCategoriesGetParams = {
+        token: this.state.token
+}
+
+
+    this.props.getVisit(visitGetParams).
+    then(v=>this.loadVisitData(v)).
+    then(r=>this.props.getVisitCategories(visitCategoriesGetParams))
+}
+
+loadVisitData(visitResult){
+// console.log('loadvisitdata')
+// console.log( visitResult && visitResult.visits.length > 0 ? getDetailsControlValue(categories.diagnosis.id, patientMeetsAECGCriteria.chkPatientMeetsAECGCriteria,visitResult.details):'none---')
+
+    this.setState({
+        patientMeetsAECGCGCA: visitResult && visitResult.visits.length > 0 ? getDetailsControlValue(categories.diagnosis.id, patientMeetsAECGCriteria.chkPatientMeetsAECGCriteria,visitResult.details):''
+    })
+
+    // console.log('this.state.patientMeetsAECGCGCA');
+    // console.log(this.state.patientMeetsAECGCGCA);
+}
+
+componentWillUnmount(){
+    this.props.visitClear();
+    this.props.visitHeaderClear(); 
+    this.props.visitCategoriesClear();
+  }
+
+
+  renderLoadingMessage(){
+    return (
+        // <PanelDefault title={"...Loading"}>
+       <div><img src={paths.loader} alt="Download"/></div>
+        // </PanelDefault>
+    )
+}
+
+renderMeetsAECGCGCACriteria(){
+    return (
+        <div className="col-md-4">
+        <div className="panel panel-success">
+              <div className="panel-heading text-center">
+                  <h3 className="panel-title"><i className="fa fa-check-circle fa-2 mr-10" aria-hidden="true"></i>Meets AECG Consensus Group Criteria</h3>
+              </div>
+          </div>
+        </div>
+    )
+}
+
+renderDoesNotMeetsAECGCGCACriteria(){
+    return (
+        <div className="col-md-4">
+        <div className="panel panel-danger">
+              <div className="panel-heading text-center">
+                  <h3 className="panel-title"><i className="fa fa-exclamation-triangle fa-2 mr-10" aria-hidden="true"></i>Does not meet AECG Consensus Group Criteria</h3>
+              </div>
+          </div>
+        </div>
+    )
+}
+
+
+renderYetToMeetAECGCGCACriteria(){
+    return (
+        <div className="col-md-4">
+        <div className="panel panel-warning">
+              <div className="panel-heading text-center">
+                  <h3 className="panel-title"><i className="fa fa-exclamation-triangle fa-2 mr-10" aria-hidden="true"></i>Yet to meet AECG Consensus Group Criteria</h3>
+              </div>
+          </div>
+        </div>
+    )
+}
+
+renderEmpty()
+{
+   return <p>Please select a Follow-up</p>
+}
+
+renderAttendanceCard(){
+        return    (
+            
+
+        <AttendanceCard dateOfAttendance={this.state.dateOfVisit} newVisit={this.state.newVisit} initialVisit={this.state.initialVisit} completed={this.state.completed} visitHeaderId={this.state.visitHeaderId} />
+        ) 
+    }
+
+
+    render (){
+
+        if((this.props.patientStateResult && this.props.patientStateResult.data && this.props.patientStateResult.data.hasVisits) || 
+            (this.props.location.state && this.props.location.state.visitHeaderResult)) {
+
+        return(
+            <div >
+                <div className="row">
+
+                <div className={classnames('col-md-12',{loading:this.props.visitHeaderResult.sendingRequest && !this.props.visitHeaderResult.requestRecieved  })}></div>
+                <div className="col-md-12"> 
+                  <FadeIn>
+                    {!!this.state.patientBaselineGlobalError && 
+                        <AlertDanger dismissable={false} heading={ALERTS.aecgcSaveSuccess.heading} message={this.state.AECGCGlobalError}/>  
+                    }
+
+                    {this.props.visitHeaderResult.status == "Saved" && 
+                        <AlertSuccess dismissable={false} heading={ALERTS.aecgcSaveSuccess.heading} message={ALERTS.aecgcSaveSuccess.message}/>
+                    }
+                    </FadeIn>
+                   </div>
+                </div>
+               <div className="row">
+               <div className="col-md-4"> 
+              {
+                this.state.dateOfVisit?
+                 this.renderAttendanceCard():null
+                  }
+                  </div>
+{
+    console.log('meetes AECGCGCA')
+}
+{
+    console.log( this.state.patientMeetsAECGCGCA)    
+}
+{
+    console.log( this.state.patientMeetsAECGCGCA  == 'True')    
+}
+{
+    console.log(  !this.state.initialLoad && this.state.patientMeetsAECGCGCA != null? this.state.patientMeetsAECGCGCA ? this.state.patientMeetsAECGCGCA: 'false': 'none')
+}
+                    {
+                    !this.state.initialLoad && this.state.patientMeetsAECGCGCA != null ?  this.state.patientMeetsAECGCGCA == 'True' ? this.renderMeetsAECGCGCACriteria() :this.renderDoesNotMeetsAECGCGCACriteria() :null
+                    }
+
+                  </div>
+                  <div className="row">
+                  <div className="col-md-12"> 
+                  <FadeIn>
+                    <AmericanEuropeanCGCForm visitHeaderId={this.state.visitHeaderId} visitHeaderResult={this.props.visitHeaderResult} visitResult={this.props.visitResult} dateOfAttendance={this.state.dateOfVisit} handleSaveVisitHeader={this.handleSaveVisitHeader} token={this.state.token} />
+                   </FadeIn>
+                   </div>
+                </div>
+        </div>
+        );
+    }
+    else  {
+        return (            
+                this.renderLoadingMessage()
+        );
+    }
+    }
+}
+
+
+
+function mapStateToProps(state) {
+    return {
+        visitHeaderResult : state.visitHeaderResult,
+        visitResult : state.visitResult,
+        patientStateResult: state.patientStateResult
+    };
+}
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({visitCategoriesClear:visitCategoriesClear, getVisitCategories: getVisitCategories, visitHeaderClear:visitHeaderClear, saveVisitHeader:saveVisitHeader, getVisitHeader:getVisitHeader, getSavedVisitHeader:getSavedVisitHeader,saveVisit:saveVisit, getVisit: getVisit, getSavedVisit: getSavedVisit,visitClear:visitClear, getPatientState:getPatientState,patientStateClear:patientStateClear}, dispatch);
+}
+
+ export default connect(mapStateToProps,matchDispatchToProps)(AmericanEuropeanCGC);

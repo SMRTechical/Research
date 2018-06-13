@@ -1,0 +1,13 @@
+
+.header-main{
+    @include add-background($dark-color);
+    @include add-border(5px, $secondary-color, bottom);}
+
+
+
+    .navbar-header{
+        padding-left:15px !important;
+        
+    }
+
+  

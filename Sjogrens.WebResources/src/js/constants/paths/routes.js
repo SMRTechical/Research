@@ -1,0 +1,26 @@
+
+export const IIS_BASE = '/CDEA/Sjogrens';
+export const INDEX_BASE = '/Home/Index';
+export const ADMIN_BASE = '/Home/Index/admin' 
+export const PATIENT_BASE = '/Home/Index/patient/:token'
+export const BASELINE_BASE = '/Home/Index/patient/:token/baseline';
+export const SUMMARY_BASE = '/Home/Index/patient/:token/summary';
+export const VISIT_BASE = '/Home/Index/visit/:token';
+export const VISIT_AMERICANEUROPEANCGC = '/Home/Index/visit/:token/AmericanEuropeanCGC';
+//export const VISIT_NEW_BASE = '/Home/Index/visit/new/:token/AmericanEuropeanCGC';
+export const VISIT_DIAGNOSIS = '/Home/Index/visit/:token/Diagnosis';
+export const VISIT_CURRENTMEDICATIONS = '/Home/Index/visit/:token/CurrentMedications';
+export const VISIT_ESSPRI = '/Home/Index/visit/:token/ESSPRI';
+export const VISIT_ESSDAI = '/Home/Index/visit/:token/ESSDAI';
+export const VISIT_ACTIVITYSCORE = '/Home/Index/visit/:token/ActivityScore';
+export const VISIT_DAMAGEINDICES = '/Home/Index/visit/:token/DamageIndices';
+export const VISIT_PASTMEDICALHISTORY = '/Home/Index/visit/:token/PastMedicalHistory';
+export const VISIT_INVESTIGATIONSREQUESTED = '/Home/Index/visit/:token/InvestigationsRequested';
+export const VISIT_ULTRASOUNDRESULTS = '/Home/Index/visit/:token/UltrasoundResults';
+export const VISIT_SALIVARYFLOW = '/Home/Index/visit/:token/SalivaryFlow';
+export const VISIT_ROUTINEBLOODS = '/Home/Index/visit/:token/RoutineBloods';
+export const VISIT_RESEARCHBLOODS = '/Home/Index/visit/:token/ResearchBloods';
+export const VISIT_OTHERRESEARCHBIOMATERIALS = '/Home/Index/visit/:token/OtherResearchBiomaterials';
+export const VISIT_CLINICALORALDRYNESSSCORE = '/Home/Index/visit/:token/CODS';
+export const VISIT_OCULARSURFACESTAININGSCORE = '/Home/Index/visit/:token/OcularSurfaceStainingScore';
+export const VISIT_FATFREEMASS = '/Home/Index/visit/:token/FatFreeMass';

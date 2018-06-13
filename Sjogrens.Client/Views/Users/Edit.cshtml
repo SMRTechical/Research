@@ -1,0 +1,79 @@
+﻿@using Sjogrens.Client.Models
+@model LoginRegisterViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="container-fluid mt-20">
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading roles-links">
+                            <h2>Edit User</h2>
+                            @Html.ActionLink("List Users", "Index")
+                        </div>
+                        <div class="panel-body">
+                            @using (Html.BeginForm( "Edit","Users"))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
+                                @Html.HiddenFor(model => model.Users[0].Id)
+                              
+                                <table class="table table-hover table-bordered table-condensed" id="UsersWithRoles">
+                                    <thead>
+                                        <tr>
+                                            <td><b>Claim</b></td>
+                                            <td><b>Value</b></td>
+                                        </tr>
+                                    </thead>
+                                    @foreach (var claim in Model.Users[0].Claims)
+                                    {
+
+                                        if (@claim.ClaimType == "FirstName" || @claim.ClaimType == "LastName" || @claim.ClaimType == "UserName"
+                                                || @claim.ClaimType == "FullName" || @claim.ClaimType == "PrimaryEmail" || @claim.ClaimType == "OrganisationCode"
+                                                || @claim.ClaimType == "OrganisationDescription" || @claim.ClaimType == "Active" || @claim.ClaimType == "Authorized"
+                                                || @claim.ClaimType == "Role" || @claim.ClaimType == "CdeaId" || @claim.ClaimType == "FirstName" || @claim.ClaimType == "LastName" || @claim.ClaimType == "PrimaryEmail")
+                                        {
+                                            <tr>
+                                                <td>@claim.ClaimType</td>
+                                                <td>
+@if (@claim.ClaimType == "Authorized" )
+{
+                                                   
+
+    @Html.DropDownList("Authorized",
+                    new SelectList(Enum.GetValues(typeof(Authorised)), @claim.ClaimValue == "true" ? Authorised.True:Authorised.False),
+                    "Select",
+                    new { @class = "form-control" })
+
+
+    
+
+}
+else
+{
+    @claim.ClaimValue
+}
+                                                </td>
+
+                                              
+                                            </tr>
+                                        }
+                                    }
+                                </table>
+
+                                <input type="submit" value="Submit" />
+                                @*@Html.ActionLink("Edit", "UpdateClaim", "Users", null, new { @class = "btn btn-primary" })*@
+                                @*<input type="submit" value="Save" class="btn btn-primary"/>*@
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

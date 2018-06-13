@@ -1,0 +1,155 @@
+﻿@model Sjogrens.Client.Models.AdminViewModel
+@{
+    ViewBag.Title = "User Roles";
+}
+
+
+<script type="text/javascript">
+   
+</script>
+
+<div class="container-fluid mt-20">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+
+<p class="alert alert-success" id="successMessage" style="display:none;">
+   
+            </p>
+            <div class="form-horizontal panel panel-primary">
+                <div class="panel-heading">
+                    <h2>Roles and Access for user @Html.DisplayFor(model => model.SelectUserRolesViewModel.UserName)</h2>
+                </div>
+
+           
+
+@using (Ajax.BeginForm("Edit", "Account",
+                                new AjaxOptions
+                                {
+                                    HttpMethod = "POST",
+                                    LoadingElementId = "progress",
+                                    OnSuccess = "Showmessage" 
+                                }))
+
+{
+                    <div class="panel-body" id="RolesAccess">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.SelectUserRolesViewModel.UserName)
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal panel panel-primary">
+                            <div class="panel-heading">
+                                <h4>Role Assignments</h4>
+                            </div>
+                            <div class="panel-body">
+
+                                    @for (int i = 0; i < Model.SelectUserRolesViewModel.Roles.Count(); i++)
+                                    {
+                                        <div class="role-container form-group">
+                                            @Html.Hidden("SelectUserRolesViewModel.Roles[" + i + "].RoleName", @Model.SelectUserRolesViewModel.Roles[i].RoleName)
+                                            @Html.Hidden("SelectUserRolesViewModel.Roles[" + i + "].RoleId", @Model.SelectUserRolesViewModel.Roles[i].RoleId)
+                                            <label class="control-label col-sm-2">@Model.SelectUserRolesViewModel.Roles[i].RoleName</label>
+                                            <div class="col-sm-3">
+                                                @Html.CheckBox("SelectUserRolesViewModel.Roles[" + i + "].Selected", @Model.SelectUserRolesViewModel.Roles[i].Selected, new { @class = "admin-role sjogrens-checkbox" })
+                                            </div>      
+                                         </div>
+                                    }
+
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal panel panel-primary">
+                            <div class="panel-heading">
+                                <h4>Access Assignments</h4>
+                            </div>
+                            <div class="panel-body">
+
+
+                                @{
+                                    int index = 0;
+                                }
+
+
+                             
+
+                                    @for (int i = 0; i < Model.SelectUserClaimsViewModel.Claims.Count(); i++)
+                                    {
+
+
+                                            if (Model.SelectUserClaimsViewModel.Claims[i].Type == "Authorized")
+                                                {
+
+                                                    bool b = false;
+                                                    bool.TryParse(Model.SelectUserClaimsViewModel.Claims[i].Value, out b);
+
+                                               
+
+                                                    <div class="form-group">
+
+                                                        @Html.Hidden("[" + index + "].Type", @Model.SelectUserClaimsViewModel.Claims[i].Type)
+
+                                                        <label class="control-label col-sm-2">@Model.SelectUserClaimsViewModel.Claims[i].Type</label>
+                                                        <div class="col-sm-3">
+
+                                                            @Html.CheckBox("[" + index + "].Value", b, new { @class = "admin-access sjogrens-checkbox" })
+                                                            </div>
+                                                        </div>
+
+                                                        index++;
+
+                                                      
+                                                            
+
+                                                        }
+                                                        
+
+                                                        @*@{ if (Model.SelectUserClaimsViewModel.Claims[i].Type == "CdeaId")
+        {
+
+            <td>
+
+
+                @Html.Hidden("[" + index + "].Type", @Model.SelectUserClaimsViewModel.Claims[i].Type)
+                @Html.DropDownList("[" + index + "].Value",
+                new SelectList(@Model.SelectUserClaimsViewModel.CDEAList, "Value", "Text", @Model.SelectUserClaimsViewModel.Claims[i].Value), "Please Select",
+                new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SelectUserClaimsViewModel.Claims[i].Value, "", new { @class = "text-danger" })
+
+                @{index++;}
+            </td>
+            <td>
+                <span class="lbl">CDEA</span>
+            </td>
+                    }
+    }*@
+
+                                                            }
+
+                                                      
+                                                    </div>
+                        </div>
+
+                    </div>
+                    <div class="panel-footer">
+                        <div class="form-group">
+                           <div class="col-md-2">
+                            @Html.ActionLink("Back to List", "Index",new object { },new { @class = "btn btn-default" })
+                        </div>
+
+                            <div class="col-md-2">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+                                                            }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿@inherits Sjogrens.Client.Pages.BasePage
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="refresh" content="@(RefreshTokenMinutes * 60)">
+    <title>Sjogrens - KeepAlive</title>
+</head>
+<body>
+    <h3>Sjogrens</h3>
+    <p>This page automatically reloads every @RefreshTokenMinutes minutes to get refresh tokens</p>
+    <p>@DateTime.Now</p>
+</body>
+</html>

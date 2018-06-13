@@ -1,0 +1,194 @@
+/*Lists*/
+
+.list {
+    margin-bottom: 30px;
+}
+
+.list-feature {
+    @extend .list;
+    margin: 0;
+    padding: 0;
+    width: 80%;
+
+    li {
+        line-height: 3.6em;
+        @include add-border(1px, #cccccc, bottom);
+        overflow: auto !important;
+    }
+    li:last-child {
+        border: 0;
+    }
+
+    span{
+        vertical-align: top;
+        padding-top: 9px;
+        font-size:120%;
+    }
+
+    i {
+        margin-top:-9px;
+        margin-right:5px;
+    }
+}
+
+.list-comments{
+    margin:0;
+    padding:0;
+
+ li{
+    padding:10px 0 5px 0;
+    @include add-border(1px,#cccccc, bottom);
+     overflow: auto !important;
+}
+
+ li:last-child{
+border:0;
+}
+
+ img{
+    width:100px;
+}
+}
+
+// .list-comments li{
+//     padding:10px 0 5px 0;
+//     @include add-border(1px,#cccccc, bottom);
+//      overflow: auto !important;
+// }
+
+// .list-comments li:last-child{
+// border:0;
+// }
+
+// .list-comments img{
+//     width:100px;
+// }
+
+/*icons*/
+.fa-2{
+    font-size:18px;
+}
+
+.fa-3{
+    font-size:24px;
+}
+
+.fa-4{
+    font-size:27px;
+}
+
+.fa-5{
+    font-size:35px;
+}
+
+.fa-6{
+    font-size:40px;
+}
+
+.fa-7{
+    font-size:43px;
+}
+
+.fa-8{
+    font-size:50px;
+}
+
+.fa-14{
+    font-size:170px;
+}
+
+.fa-16{
+    font-size:195px;
+}
+
+
+.fa-30{
+    font-size:200px
+}
+
+.fa-32{
+    font-size:210px
+}
+
+
+.fa-primary{
+    color:$primary-color;
+   
+}
+
+.ban, .question{
+    color:$danger-color;
+}
+
+
+
+.fa-border{
+ @include add-border(1px, $primary-color, all);
+    @include border-radius(5px);
+    padding:13px 15px;
+    width:70px;
+    margin-bottom:10px;
+}
+
+/*Headings*/
+.heading-primary{
+    color:$primary-color;
+}
+
+// .heading-inclusion-criteria{
+//     color:$inclusion-Criteria-color;
+// }
+
+// .heading-exclusion-criteria{
+//     color:$exclusion-Criteria-color;
+// }
+
+
+.heading-primary-a{
+    @extend .heading-primary;
+    @include add-border(2px, $primary-color, bottom);
+}
+
+.heading-secondary{
+    color:$secondary-color;
+}
+
+.heading-secondary-a{
+    @extend .heading-secondary;
+    @include add-border(2px, $secondary-color, bottom);
+}
+
+.heading-light{
+    color:$light-color;
+}
+
+.heading-light-a{
+    @extend .heading-light;
+    @include add-border(2px, $light-color, bottom);
+}
+
+.heading-dark{
+    color:$dark-color;
+}
+
+.heading-dark-a{
+    @extend .heading-dark;
+    @include add-border(2px, $dark-color, bottom);
+}
+
+/*Emphasis Text*/
+.em-primary{
+    color:$primary-color;
+}
+
+.em-secondary{
+    color:$secondary-color;
+}
+
+.em-dark{
+    color:$dark-color;
+}
+
+.em-light{
+    color:$light-color;
+}
